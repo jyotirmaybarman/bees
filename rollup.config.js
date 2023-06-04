@@ -8,14 +8,6 @@ import babel from '@rollup/plugin-babel';
 // Minifies the bundle
 import terser from '@rollup/plugin-terser';
 
-// CSS
-// Enable the PostCSS preprocessor
-import postcss from 'rollup-plugin-postcss';
-// Use @import to include other CSS files
-import atImport from 'postcss-import';
-// Use the latest CSS features in your Rollup bundle
-import postcssPresetEnv from 'postcss-preset-env';
-
 // Development: Enables a livereload server that watches for changes to CSS, JS, and Handlbars files
 import { resolve } from "path";
 import livereload from 'rollup-plugin-livereload';
@@ -33,15 +25,6 @@ export default defineConfig({
         commonjs(), 
         nodeResolve(), 
         babel({ babelHelpers: 'bundled' }),
-        postcss({
-            extract: true,
-            sourceMap: true,
-            plugins: [
-                atImport(),
-                postcssPresetEnv({})
-            ], 
-            minimize: true,
-        }),
         process.env.BUILD !== "production" && livereload({
             watch: resolve('.'),
             extraExts: ['hbs'],
