@@ -1,11 +1,18 @@
-// JavaScript files are compiled and minified during the build process to the assets/built folder. See available scripts in the package.json file.
+import darkMode from './darkMode';
+
+darkMode.init();
 
 
-// Import JS
-import menuOpen from "./menuOpen";
-import infiniteScroll from "./infiniteScroll";
-
-
-// Call the menu and infinite scroll functions
-menuOpen();
-infiniteScroll();
+document.body.addEventListener('click', (e)=>{
+    const clickFields = document.querySelectorAll('.click-field')
+    if(clickFields){
+        clickFields.forEach((field)=>{
+            if(!field.contains(e.target)){
+                const fieldToggle = field.querySelectorAll(`[data-show]`)
+                fieldToggle.forEach((f)=>{
+                    f.setAttribute('data-show', false)
+                })
+            }
+        })
+    }
+})

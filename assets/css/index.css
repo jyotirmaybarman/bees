@@ -34,12 +34,16 @@ production stylesheet in assets/built/screen.css using: npm run dev
 /* Main - Your styles here! Edit below
 /* ---------------------------------------------------------- */
 
-html,
-.gh-viewport {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background: #ffffff;
+body.dark{
+    background: #080C21;
+    color: white;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+*[data-show=false]{
+    display: none;
 }
 
 .gh-main {
@@ -259,3 +263,6 @@ html,
         font-size: 1.6rem;
     }
 }
+
+
+
