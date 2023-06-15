@@ -1,20 +1,67 @@
 {{!< default}}
-<div class="gh-page">
-    <div class="gh-container">
 
-        <div class="gh-postfeed">
-        {{#foreach posts}}
+<main>
+    {{#get "posts" filter="featured:true" include="authors,tags" limit="1" as |featured|}}
+        {{#if featured}}
+            {{#foreach featured}}
+                <div class="flex flex-col lg:flex-row items-center lg:gap-5">
+                    <div class="left w-full order-2 lg:order-1 lg:w-1/2">
+                        <div class="tags flex items-center gap-2 mt-4">
+                            {{#foreach tags}}
+                                <a href="{{url}}" class="bg-gray-100 hover:bg-red-500 hover:text-white dark:hover:bg-red-500 dark:hover:text-white text-gray-800 text-xs font-medium mr-2 px-3 py-1 rounded dark:bg-gray-700 dark:text-gray-300">{{name}}</a>
+                            {{/foreach}}
+                            <button>
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+                                </svg>
+                            </button>
+                        </div>
+                        <a href="#" class="hover:text-red-500 text-[20px] lg:text-[40px] mt-4 inline-block">{{ title }}</a>
+                        <div class="author flex items-center gap-3 mt-6">
+                            <a href="#">
+                                <img src="{{primary_author.profile_image}}" class="rounded-full h-12 w-12" alt="">
+                            </a>
+                            <div class="user">
+                                <a href="#" class="font-bold hover:text-red-500 hover:underline">{{primary_author.name}}</a>
+                                <p class="text-sm text-gray-600 dark:text-gray-300">{{date}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right w-full order-1 lg:order-2 lg:w-1/2 ">
+                        <a class="" href="{{url}}">
+                            <img
+                                srcset="
+                                {{img_url feature_image size="xxs"}} 30w,
+                                {{img_url feature_image size="xs"}} 100w,
+                                {{img_url feature_image size="s"}} 300w,
+                                {{img_url feature_image size="m"}} 600w,
+                                {{img_url feature_image size="l"}} 1200w,
+                                {{img_url feature_image size="xl"}} 2000w"
+                                {{^if @first}}sizes="(min-width: 1200px) 1200px, 100vw)"{{else}}sizes="(min-width: 800px) 100vw, 700px"{{/if}}
+                                src="{{img_url feature_image size="m"}}"
+                                alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                                class="block lg:min-h-[400px] w-full object-cover cursor-pointer md:h-[25rem] object-center hover:scale-[101%] rounded"
+                                {{^if @first}}loading="lazy"{{/if}}
+                            >
+                        </a>
+                    </div>
+                </div>
+            {{/foreach}}
+        {{/if}}
+    {{/get}}
 
-            {{> "card" page=../pagination.page }} {{!-- partials/card.hbs --}}
+    <p class="mt-12 font-bold"># POSTS</p>
 
-        {{/foreach}}
-        </div>
-
-        {{!-- If JS isn't enabled, fallback to standard pagination --}}
-        <noscript>
-            <div class="gh-pagination">
-                {{pagination}}
+    <div class="flex justify-between gap-6 mt-6">
+        <div class="lg:w-[80%]">
+            <div class="posts-grid grid sm:grid-cols-2 gap-12">
+                {{> "loop" }}
             </div>
-        </noscript>
+            {{pagination}}
+        </div>
+        <div class="right hidden lg:block lg:w-[20%] bg-gray-100">
+            dfgdfgdfgdfg
+        </div>
     </div>
-</div>
+
+</main>
