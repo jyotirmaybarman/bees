@@ -1,39 +1,5 @@
 {{#foreach posts}}
  <div>
-    <div>
-        <a class="" href="{{url}}">
-            <img
-                srcset="
-                {{img_url feature_image size="xxs"}} 30w,
-                {{img_url feature_image size="xs"}} 100w,
-                {{img_url feature_image size="s"}} 300w,
-                {{img_url feature_image size="m"}} 600w,
-                {{img_url feature_image size="l"}} 1200w,
-                {{img_url feature_image size="xl"}} 2000w"
-                {{^if @first}}sizes="(min-width: 1200px) 1200px, 100vw)"{{else}}sizes="(min-width: 800px) 100vw, 700px"{{/if}}
-                src="{{img_url feature_image size="m"}}"
-                alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
-                class="block max-h-[16rem] h-[16rem] w-full object-cover rounded hover:scale-[101%] cursor-pointer"
-                {{^if @first}}loading="lazy"{{/if}}
-            >
-        </a>
-        {{#if primary_tag}}
-            <div class="tags flex items-center gap-2 mt-3">
-                {{#foreach tags}}
-                    <a href="{{url}}" class="bg-gray-100 hover:bg-red-500 hover:text-white dark:hover:bg-red-500 dark:hover:text-white text-gray-800 text-xs font-medium mr-2 px-3 py-1 rounded dark:bg-gray-700 dark:text-gray-300">{{name}}</a>
-                {{/foreach}}
-            </div>
-        {{/if }}
-        <a href="{{url}}" class="hover:text-red-600 dark:hover:text-red-500 lg:text-[20px] mt-4 inline-block">{{title}}</a>
-        <div class="author flex items-center gap-3 mt-6">
-            <a href="#">
-                <img src="{{primary_author.profile_image}}" class="rounded-full h-12 w-12" alt="">
-            </a>
-            <div class="user">
-                <a href="#" class="font-bold hover:text-red-500 hover:underline">{{primary_author.name}}</a>
-                <p class="text-sm text-gray-600 dark:text-gray-300">{{date}}</p>
-            </div>
-        </div>
-    </div>
+    {{> "card"  }}
  </div>
 {{/foreach}}
