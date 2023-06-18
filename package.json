@@ -1,8 +1,8 @@
 {
-    "name": "ghost-starter-theme",
-    "description": "A starter theme for Ghost theme development",
+    "name": "bees",
+    "description": "A Custom Theme For Blogging",
     "demo": "https://starter.ghost.io",
-    "version": "2.0.1",
+    "version": "0.0.1",
     "engines": {
         "ghost": ">=5.0.0"
     },
@@ -39,7 +39,7 @@
         "url": "https://github.com/TryGhost/Starter.git"
     },
     "bugs": "https://github.com/TryGhost/Starter/issues",
-    "contributors": "https://github.com/TryGhost/Starter/graphs/contributors",
+    "contributors": [],
     "devDependencies": {
         "@babel/core": "^7.21.0",
         "@babel/preset-env": "^7.20.2",
