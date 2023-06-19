@@ -1,9 +1,5 @@
 {{!< default}}
 
-<script>
-  const theme = localStorage.getItem("theme")
-  console.log(theme)
-</script>
 
 {{#post }}
   {{#if feature_image}}
@@ -69,8 +65,8 @@
 
 
     
-    <div class="gh-canvas gh-content relative">
-        <div class="fixed top-[93vh] bg-white lg:bg-transparent w-full flex lg:block justify-center py-4 lg:absolute z-50 lg:top-0 lg:right-[-6rem] xl:-right-52 lg:w-16 h-full">
+    <div class="relative mt-16">
+        <div class="fixed z-10 bg-white dark:bg-[#080C21] w-full left-0 bottom-0 flex justify-center h-max py-3 lg:py-0 lg:left-auto lg:bg-transparent lg:block lg:absolute lg:top-0 lg:right-[-6rem] xl:-right-52 lg:w-16 lg:h-full">
           <div class="lg:sticky top-44 right-0 flex lg:flex-col gap-6">
             <button onclick="scrollToTop()" class="group relative bg-white dark:bg-[#080C21] h-12 w-12 flex justify-center items-center rounded-full border dark:border-gray-600">
               <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 stroke-gray-500 dark:stroke-gray-500 group-hover:stroke-[#1da1f2]">
@@ -99,7 +95,9 @@
             </button>
           </div>
         </div>
-        {{content}}
+        <div class="prose max-w-none dark:prose-invert">
+          {{content}}
+        </div>
     </div>
 
 
@@ -114,7 +112,7 @@
     </div>
 
   {{#if comments}}
-    <div class="gh-canvas mt-6">
+    <div class="mt-6">
         <div class="comments-loading flex justify-center my-6">
           <svg class="w-6 h-6 animate-spin" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
@@ -128,8 +126,7 @@
 {{/post }}
 
 
-  <div class="gh-canvas">
-    <hr class="border-gray-300 dark:border-[#333] my-4">
+  <div class="">
     {{> "related-posts"  }}
   </div>
 

@@ -82,3 +82,145 @@ body.dark figcaption{
 }
 
 
+.alert,pre.language-alert {
+  --sign: "i";
+  position: relative;
+  padding: 1em;
+  border: 1px solid;
+  margin-top: 1em;
+  margin-bottom: 2em;
+  border-radius: 5px;
+}
+
+.alert a,pre.language-alert a {
+  border-bottom: 1px dotted var(--color-accent)
+}
+
+@media only screen and (min-width: 48em) {
+  .alert,pre.language-alert {
+    padding:1.5em
+  }
+}
+
+.alert:before,pre.language-alert:before {
+  content: var(--sign);
+  background-color: var(--color-accent);
+  font-family: Consolas,Monaco,monospace;
+  position: absolute;
+  line-height: 1;
+  width: 24px;
+  height: 24px;
+  left: -12px;
+  top: -12px;
+  font-size: .9rem;
+  font-weight: 700;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  color: #fff;
+  border-radius: 50%
+}
+
+.alert:after,pre.language-alert:after {
+  content: "";
+  background-color: var(--color-accent);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: -1;
+  opacity: .05
+}
+
+.alert.info,pre.language-alert.info {
+  --color-accent: blue;
+  --sign: "i"
+}
+
+.alert.warning,pre.language-alert.warning {
+  --color-accent: yellow;
+  --sign: "!"
+}
+
+.alert.error,pre.language-alert.error {
+  --color-accent: red;
+  --sign: "!"
+}
+
+.alert.error:before,pre.language-alert.error:before {
+  content: "!"
+}
+
+.alert.success,pre.language-alert.success {
+  --color-accent: green;
+  --sign: "\2713"
+}
+
+
+.prose blockquote {
+  border: 1px solid #eff1f3;
+  border-left: 3px solid #e50b4f;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  font-family: Open Sans,Tahoma,Arial,sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0 0 2em;
+  padding: 2em;
+  position: relative;
+  text-align: center;
+  width: 100%
+}
+
+.prose blockquote.important-info:before {
+  content: ""
+}
+
+.prose blockquote:before {
+  color: #e50b4f;
+  content: "‟";
+  font-family: sans-serif;
+  font-size: 6rem;
+  font-weight: 800;
+  left: 0;
+  line-height: 3rem;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0
+}
+
+.prose blockquote+figcaption cite {
+  display: block;
+  font-size: inherit;
+  font-style: italic;
+  text-align: right
+}
+
+.prose blockquote cite {
+  font-weight: 700;
+}
+
+.prose blockquote p {
+  margin: 0
+}
+
+.important-info {
+  background-color: #fafafa;
+  border: 1px solid #eff1f3;
+  border-left: 3px solid #e50b4f;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 2em;
+}
+
+
+
