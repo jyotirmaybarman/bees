@@ -2091,8 +2091,8 @@ video {
   height: 280px;
 }
 
-.h-\[450px\] {
-  height: 450px;
+.h-\[500px\] {
+  height: 500px;
 }
 
 .h-fit {
@@ -2102,10 +2102,6 @@ video {
 
 .h-full {
   height: 100%;
-}
-
-.h-\[500px\] {
-  height: 500px;
 }
 
 .w-10 {
@@ -2713,6 +2709,16 @@ figcaption a:hover{
 
 body.dark figcaption{
   color: #fff;
+}
+
+@media (max-width: 650px) {
+  .gh-canvas blockquote,
+    .gh-canvas ol,
+    .gh-canvas ul,
+    .gh-canvas dl,
+    .gh-canvas p {
+    font-size: 1rem;
+  }
 }
 
 /* Main - Your styles here! Edit below
