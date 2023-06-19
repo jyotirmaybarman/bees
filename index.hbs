@@ -1,6 +1,6 @@
 {{!< default}}
 
-<main>
+<main class="kg-width-wide mt-12">
     {{#get "posts" filter="featured:true" include="authors,tags" limit="1" as |featured|}}
         {{#if featured}}
             {{#foreach featured}}

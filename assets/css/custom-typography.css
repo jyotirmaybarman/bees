@@ -20,7 +20,7 @@ production stylesheet in assets/built/screen.css using: npm run dev
 
 /* Ghost components */
 @import "ghost/header.css";
-@import "ghost/content.css";
+@import "ghost/content.css";  
 @import "ghost/readmore.css";
 @import "ghost/members.css";
 @import "ghost/errors.css";
@@ -36,25 +36,39 @@ production stylesheet in assets/built/screen.css using: npm run dev
 /* ---------------------------------------------------------- */
 
 body.dark{
-    background: #080C21;
-    color: white;
+  background: #080C21;
+  color: white;
 }
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
 
 *[data-show=false]{
-    display: none;
-}   
-.progress-container{width:100%;position:fixed;z-index:99;top:0;left:0;}
-.progress-bar{height:5px;background:#F86152;}
-
-.unshow{
-    height: 0;
-    width: 0;
-    opacity: 0;
-    pointer-events: none;
+  display: none;
 }
 
+.gh-canvas > blockquote, .gh-canvas > ol, .gh-canvas > ul, .gh-canvas > dl, .gh-canvas > p {
+  font-size: 1rem;
+}
+.gh-content blockquote{
+  background: transparent;
+}
+.gh-content blockquote::before{
+  display: none;
+}
+
+figcaption{
+  font-size:14px;
+  font-weight:normal;
+}
+
+figcaption a:hover{
+  color: #B6B7F6;
+  text-decoration: underline;
+}
+
+body.dark figcaption{
+  color: #fff;
+}
 
 

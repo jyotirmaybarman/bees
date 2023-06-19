@@ -1,93 +1,158 @@
 {{!< default}}
 
-{{#post}}
+<script>
+  const theme = localStorage.getItem("theme")
+  console.log(theme)
+</script>
 
-<article class="gh-article {{post_class}}">
+{{#post }}
+  {{#if feature_image}}
+    <figure class="gh-feature-image kg-width-full !mt-0">
+      <picture>
+        <source 
+          srcset="
+          {{img_url feature_image size="xxs" format="avif"}} 30w,
+          {{img_url feature_image size="xs" format="avif"}} 100w,
+          {{img_url feature_image size="s" format="avif"}} 300w,
+          {{img_url feature_image size="m" format="avif"}} 600w,
+          {{img_url feature_image size="l" format="avif"}} 1200w,
+          {{img_url feature_image size="xl" format="avif"}} 2000w"
+          sizes="(min-width: 1200px) 1200px, 90vw" 
+          type="image/avif"
+        >
+        <source 
+          srcset="
+          {{img_url feature_image size="xxs" format="webp"}} 30w,
+          {{img_url feature_image size="xs" format="webp"}} 100w,
+          {{img_url feature_image size="s" format="webp"}} 300w,
+          {{img_url feature_image size="m" format="webp"}} 600w,
+          {{img_url feature_image size="l" format="webp"}} 1200w,
+          {{img_url feature_image size="xl" format="webp"}} 2000w"
+          sizes="(min-width: 1200px) 1200px, 90vw" 
+          type="image/webp"
+        >
+        <img
+          srcset="
+          {{img_url feature_image size="xxs"}} 30w,
+          {{img_url feature_image size="xs"}} 100w,
+          {{img_url feature_image size="s"}} 300w,
+          {{img_url feature_image size="m"}} 600w,
+          {{img_url feature_image size="l"}} 1200w,
+          {{img_url feature_image size="xl"}} 2000w"
+          sizes="(min-width: 1200px) 1200px, 90vw" 
+          class="h-[500px] block object-cover"
+          src="{{img_url feature_image size="l"}}"
+          alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+        >
+      </picture>
+      {{#if feature_image_caption}}
+        <figcaption class="text-sm p-0 pt-2 font-normal dark:text-white">{{feature_image_caption}}</figcaption>
+      {{/if}}
+    </figure>
+  {{/if}}
 
-    <header class="gh-header gh-canvas">
-        <span class="gh-post-meta"><time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time> <span class="bull">&bull;</span> {{reading_time}}</span>
-        <h1 class="gh-title">{{title}}</h1>
 
-        {{#if custom_excerpt}}
-        <p class="gh-excerpt">{{custom_excerpt}}</p>
+  <article class="mt-16 relative">
+    <header class="text-center">
+
+      <h1 class="text-4xl font-bold">{{title}}</h1>
+
+      <div class="flex text-[#b6b7f6] items-center justify-center gap-2 mt-6">
+        {{#if primary_tag}}
+          <a href="{{primary_tag.url}}" class="">{{primary_tag.name}}</a>
+          <span class="" aria-hidden="true">&bull;</span>
         {{/if}}
 
-        {{#if feature_image}}
-        <figure class="gh-feature-image">
-            <picture>
-              <source 
-                srcset="
-                {{img_url feature_image size="xxs" format="avif"}} 30w,
-                {{img_url feature_image size="xs" format="avif"}} 100w,
-                {{img_url feature_image size="s" format="avif"}} 300w,
-                {{img_url feature_image size="m" format="avif"}} 600w,
-                {{img_url feature_image size="l" format="avif"}} 1200w,
-                {{img_url feature_image size="xl" format="avif"}} 2000w"
-                sizes="(min-width: 1200px) 1200px, 90vw" 
-                type="image/avif"
-              >
-              <source 
-                srcset="
-                {{img_url feature_image size="xxs" format="webp"}} 30w,
-                {{img_url feature_image size="xs" format="webp"}} 100w,
-                {{img_url feature_image size="s" format="webp"}} 300w,
-                {{img_url feature_image size="m" format="webp"}} 600w,
-                {{img_url feature_image size="l" format="webp"}} 1200w,
-                {{img_url feature_image size="xl" format="webp"}} 2000w"
-                sizes="(min-width: 1200px) 1200px, 90vw" 
-                type="image/webp"
-              >
-              <img
-                srcset="
-                {{img_url feature_image size="xxs"}} 30w,
-                {{img_url feature_image size="xs"}} 100w,
-                {{img_url feature_image size="s"}} 300w,
-                {{img_url feature_image size="m"}} 600w,
-                {{img_url feature_image size="l"}} 1200w,
-                {{img_url feature_image size="xl"}} 2000w"
-                sizes="(min-width: 1200px) 1200px, 90vw" 
-                src="{{img_url feature_image size="l"}}"
-                alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
-              >
-            </picture>
-            {{#if feature_image_caption}}
-                <figcaption>{{feature_image_caption}}</figcaption>
-            {{/if}}
-        </figure>
-        {{/if}}
+        <span class="">{{date published_at}}</span>
+      </div>
     </header>
 
-    <div class="gh-content gh-canvas prose">
+
+    
+    <div class="gh-canvas gh-content relative">
+        <div class="fixed top-[93vh] bg-white lg:bg-transparent w-full flex lg:block justify-center py-4 lg:absolute z-50 lg:top-0 lg:right-[-6rem] xl:-right-52 lg:w-16 h-full">
+          <div class="lg:sticky top-44 right-0 flex lg:flex-col gap-6">
+            <button onclick="scrollToTop()" class="group relative bg-white dark:bg-[#080C21] h-12 w-12 flex justify-center items-center rounded-full border dark:border-gray-600">
+              <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 stroke-gray-500 dark:stroke-gray-500 group-hover:stroke-[#1da1f2]">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 19.5v-15m0 0l-6.75 6.75M12 4.5l6.75 6.75" />
+              </svg>
+              <svg class="absolute w-full h-full top-0 left-0" viewBox="2 -2 28 36">
+                <circle class="progress-svg fill-transparent stroke-[#1da1f2] stroke-2 " r="16" cx="16" cy="16" style="fill: none; stroke-dashoffset: 100; stroke-linecap: round; stroke: seagreen; stroke-dasharray: 100 100; stroke-linecap: round; stroke-width: 2px;"></circle>
+              </svg>
+            </button>
+            <button class="group relative bg-white dark:bg-[#080C21] h-12 w-12 flex justify-center items-center rounded-full border dark:border-gray-600">
+              <svg class="h-4 w-4 group-hover:fill-[#1da1f2] fill-gray-500 dark:fill-gray-500" viewBox="0 0 333333 333333" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd">
+                <path d="M333328 63295c-12254 5480-25456 9122-39241 10745 14123-8458 24924-21861 30080-37819-13200 7807-27871 13533-43416 16596-12499-13281-30252-21537-49919-21537-37762 0-68336 30591-68336 68330 0 5326 591 10537 1748 15562-56820-2880-107194-30081-140915-71467-6049 10435-9250 22300-9250 34367v8c0 23696 12031 44654 30389 56876-11202-333-21739-3457-30991-8519v854c0 33138 23554 60789 54852 67039-5734 1557-11787 2417-18023 2417-4417 0-8673-455-12905-1224 8742 27139 33975 46923 63857 47500-23430 18356-52858 29286-84939 29286-5537 0-10931-339-16318-984 30326 19458 66251 30727 104844 30727 125735 0 194551-104198 194551-194543 0-3002-67-5911-191-8852 13354-9553 24932-21609 34097-35333l31-31-6 4z"></path>
+              </svg>
+            </button>
+            <button class="group relative bg-white dark:bg-[#080C21] h-12 w-12 flex justify-center items-center rounded-full border dark:border-gray-600">
+              <svg class="w-4 h-4 group-hover:fill-[#1da1f2] fill-gray-500 dark:fill-gray-500" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 640 640">
+                <path d="M380.001 120.001h99.993V0h-99.993c-77.186 0-139.986 62.8-139.986 139.986v60h-80.009V320h79.985v320h120.013V320h99.994l19.996-120.013h-119.99v-60.001c0-10.843 9.154-19.996 19.996-19.996v.012z"></path>
+              </svg>
+            </button>
+            <button onclick="copyToClipboard()" class="group relative bg-white dark:bg-[#080C21] h-12 w-12 flex justify-center items-center rounded-full border dark:border-gray-600">
+              <svg class="h-4 w-4 group-hover:fill-[#1da1f2] fill-gray-500 dark:fill-gray-500" viewBox="0 0 111.07 122.88" >
+                <g>
+                  <path class="st0" d="M97.67,20.81L97.67,20.81l0.01,0.02c3.7,0.01,7.04,1.51,9.46,3.93c2.4,2.41,3.9,5.74,3.9,9.42h0.02v0.02v75.28 v0.01h-0.02c-0.01,3.68-1.51,7.03-3.93,9.46c-2.41,2.4-5.74,3.9-9.42,3.9v0.02h-0.02H38.48h-0.01v-0.02 c-3.69-0.01-7.04-1.5-9.46-3.93c-2.4-2.41-3.9-5.74-3.91-9.42H25.1c0-25.96,0-49.34,0-75.3v-0.01h0.02 c0.01-3.69,1.52-7.04,3.94-9.46c2.41-2.4,5.73-3.9,9.42-3.91v-0.02h0.02C58.22,20.81,77.95,20.81,97.67,20.81L97.67,20.81z M0.02,75.38L0,13.39v-0.01h0.02c0.01-3.69,1.52-7.04,3.93-9.46c2.41-2.4,5.74-3.9,9.42-3.91V0h0.02h59.19 c7.69,0,8.9,9.96,0.01,10.16H13.4h-0.02v-0.02c-0.88,0-1.68,0.37-2.27,0.97c-0.59,0.58-0.96,1.4-0.96,2.27h0.02v0.01v3.17 c0,19.61,0,39.21,0,58.81C10.17,83.63,0.02,84.09,0.02,75.38L0.02,75.38z M100.91,109.49V34.2v-0.02h0.02 c0-0.87-0.37-1.68-0.97-2.27c-0.59-0.58-1.4-0.96-2.28-0.96v0.02h-0.01H38.48h-0.02v-0.02c-0.88,0-1.68,0.38-2.27,0.97 c-0.59,0.58-0.96,1.4-0.96,2.27h0.02v0.01v75.28v0.02h-0.02c0,0.88,0.38,1.68,0.97,2.27c0.59,0.59,1.4,0.96,2.27,0.96v-0.02h0.01 h59.19h0.02v0.02c0.87,0,1.68-0.38,2.27-0.97c0.59-0.58,0.96-1.4,0.96-2.27L100.91,109.49L100.91,109.49L100.91,109.49 L100.91,109.49z"></path>
+                </g>
+              </svg>
+            </button>
+          </div>
+        </div>
         {{content}}
     </div>
 
-    <footer class="gh-footer gh-canvas">
 
-        <div class="gh-post-authors">
-            Written by {{#foreach authors}}<a href="{{url}}">{{name}}</a>{{/foreach}}
+  </article>
+
+    <div class="max-w-3xl mx-auto flex gap-4 mt-16">
+      <div class="border-0 border-b w-full border-b-gray-200 dark:border-b-gray-500"></div>
+      <p class="relative">
+        <span class="absolute text-[12px] uppercase -top-[0.6rem] -left-3 text-gray-500 dark:text-gray-400">end</span>
+      </p>
+      <div class="border-0 border-b w-full border-b-gray-200 dark:border-b-gray-500"></div>
+    </div>
+
+  {{#if comments}}
+    <div class="gh-canvas mt-6">
+        <div class="comments-loading flex justify-center my-6">
+          <svg class="w-6 h-6 animate-spin" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+          </svg>
         </div>
-
-        {{#if comments}}
-        <section class="gh-post-comments">
-            {{comments}}
-        </section>
-        {{/if}}
-
-    </footer>
-
-</article>
-
-<aside class="gh-readmore">
-    <div class="gh-readmore-inner gh-container">
-        <div class="gh-readmore-next">
-            {{#next_post}}<a href="{{url}}">{{> "icons/arrow-left"}} <h4>{{title}}</h4></a>{{/next_post}}
-        </div>
-        <div class="gh-readmore-prev">
-            {{#prev_post}}<a href="{{url}}">
-                <h4>{{title}}</h4> {{> "icons/arrow-right"}}
-            </a>{{/prev_post}}
+        <div class="comments hidden">
+          {{comments mode="light"}}
         </div>
     </div>
-</aside>
+  {{/if}}
+{{/post }}
 
-{{/post}}
+
+  <div class="gh-canvas">
+    <hr class="border-gray-300 dark:border-[#333] my-4">
+    {{> "related-posts"  }}
+  </div>
+
+{{#contentFor "scripts"}}
+{{/contentFor}}
+
+<script>
+
+  function scrollToTop(e){
+    window.scrollTo({top: 0, behavior: 'smooth'})
+  }
+
+  function copyToClipboard(){
+    
+    
+    console.log(window.location.href)
+    try{
+      navigator.clipboard.writeText(window.location.href)
+      showSuccessToast("Link copied to clipboard")
+    }catch(e){
+      showErrorToast("something went wrong")
+      console.log(e)
+    }
+  }
+</script>
+

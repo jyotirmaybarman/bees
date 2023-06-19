@@ -29,7 +29,7 @@
                 sizes="(min-width: 1400px) 1400px, 92vw"
                 src="{{img_url feature_image size="xl"}}"
                 alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
-                class="h-[280px] sm:h-[250px] md:h-[280px] w-full object-cover object-center hover:scale-[101%] border dark:border-[#333]"
+                class="{{#if short}} h-[200px] sm:h-[150px] w-full sm:w-[250px] {{else}} h-[280px] sm:h-[250px] md:h-[280px] w-full {{/if}}  object-cover object-center hover:scale-[101%] border dark:border-[#333]"
             >
         </picture>
     </a>
@@ -40,14 +40,16 @@
             {{/foreach}}
         </div>
     {{/if }}
-    <a href="{{url}}" class="hover:text-red-600 dark:hover:text-red-500 lg:text-[20px] mt-3 inline-block">{{title}}</a>
-    <div class="author flex items-center gap-3 mt-3">
-        <a href="{{primary_author.url}}">
-            <img src="{{primary_author.profile_image}}" class="rounded-full h-12 w-12" alt="{{ primary_author.name }} profile picture">
-        </a>
-        <div class="user">
-            <a href="{{primary_author.url}}" class="font-bold hover:text-red-500 hover:underline">{{primary_author.name}}</a>
-            <p class="text-sm text-gray-600 dark:text-gray-300">{{date}}</p>
+    <a href="{{url}}" class="{{#if short}} text-sm {{else}}lg:text-[20px] {{/if  }} hover:text-red-600 dark:hover:text-red-500 mt-3 inline-block">{{title}}</a>
+    {{#unless short}}
+        <div class="author flex items-center gap-3 mt-3">
+            <a href="{{primary_author.url}}">
+                <img src="{{primary_author.profile_image}}" class="rounded-full h-12 w-12" alt="{{ primary_author.name }} profile picture">
+            </a>
+            <div class="user">
+                <a href="{{primary_author.url}}" class="font-bold hover:text-red-500 hover:underline">{{primary_author.name}}</a>
+                <p class="text-sm text-gray-600 dark:text-gray-300">{{date}}</p>
+            </div>
         </div>
-    </div>
+    {{/unless  }}
 </div>

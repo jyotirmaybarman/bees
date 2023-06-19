@@ -15,6 +15,14 @@ function init(){
             toggleDark();
         })
     })
+
+    // set comments theme
+    let t = setTimeout(()=> {
+        setCommentsTheme(theme);
+        document.querySelector('.comments-loading').classList.add('hidden')
+        document.querySelector('.comments').classList.remove('hidden')
+        clearTimeout(t)
+    }, 3000)
 }
 
 function isDark(){
@@ -29,13 +37,12 @@ function toggleDark(){
     document.body.classList.add(theme);
     localStorage.setItem('theme', theme);
     showIcon(theme);
+    setCommentsTheme(theme)
 }
 
 function showIcon(theme){
     const lightIcons = document.querySelectorAll('.light-icon');
     const darkIcons = document.querySelectorAll('.dark-icon');
-
-    console.log(lightIcons);
 
     if(theme == 'dark'){
         lightIcons.forEach(icon => icon.style.display = "none");
@@ -44,6 +51,18 @@ function showIcon(theme){
         lightIcons.forEach(icon => icon.style.display = "block");
         darkIcons.forEach(icon => icon.style.display = "none");
     }
+}
+
+function setCommentsTheme(theme){
+    const commentsRoot = document.querySelector('#ghost-comments-root')
+    commentsRoot.querySelectorAll('iframe').forEach(iframe => {
+        const ghostDisplay = iframe.contentWindow.document.querySelector('.ghost-display');
+        if(ghostDisplay){
+            ghostDisplay.classList.remove('dark')
+            ghostDisplay.classList.remove('light')
+            ghostDisplay.classList.add(theme)
+        }
+    })
 }
 
 export default {
