@@ -19,8 +19,10 @@ function init(){
     // set comments theme
     let t = setTimeout(()=> {
         setCommentsTheme(theme);
-        document.querySelector('.comments-loading').classList.add('hidden')
-        document.querySelector('.comments').classList.remove('hidden')
+        const commentsLoading =  document.querySelector('.comments-loading');
+        if(commentsLoading) commentsLoading.classList.add('hidden');
+        const comments = document.querySelector('.comments');
+        if(comments) comments.classList.remove('hidden');
         clearTimeout(t)
     }, 3000)
 }
@@ -55,7 +57,7 @@ function showIcon(theme){
 
 function setCommentsTheme(theme){
     const commentsRoot = document.querySelector('#ghost-comments-root')
-    commentsRoot.querySelectorAll('iframe').forEach(iframe => {
+    if(commentsRoot) commentsRoot.querySelectorAll('iframe').forEach(iframe => {
         const ghostDisplay = iframe.contentWindow.document.querySelector('.ghost-display');
         if(ghostDisplay){
             ghostDisplay.classList.remove('dark')
