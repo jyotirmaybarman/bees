@@ -2561,8 +2561,8 @@ video {
   height: 80px;
 }
 
-.h-\[90\%\] {
-  height: 90%;
+.h-\[80vh\] {
+  height: 80vh;
 }
 
 .h-fit {
@@ -2577,22 +2577,6 @@ video {
 .h-max {
   height: -moz-max-content;
   height: max-content;
-}
-
-.h-screen {
-  height: 100vh;
-}
-
-.h-\[90ch\] {
-  height: 90ch;
-}
-
-.h-\[90vh\] {
-  height: 90vh;
-}
-
-.h-\[80vh\] {
-  height: 80vh;
 }
 
 .max-h-\[16rem\] {
