@@ -1,35 +1,59 @@
 {{!< default}}
 
-<div class="gh-page">
-    <div class="gh-container">
+<div class="kg-width-wide mt-12">
+    {{#tag}}
+        <header class="flex flex-col justify-center items-center">
 
-        {{#tag}}
-        <header class="gh-page-head">
+            <div class="w-16 h-16 rounded-full">
+                <picture>
+                    <!-- Serve the AVIF format if the browser supports it -->
+                    <!-- Remove this block when using animated images as feature images -->
+                    <source 
+                        srcset="{{img_url feature_image size="s" format="avif"}} 300w,
+                                {{img_url feature_image size="m" format="avif"}} 600w,
+                                {{img_url feature_image size="l" format="avif"}} 1000w,
+                                {{img_url feature_image size="xl" format="avif"}} 2000w"
+                        sizes="(min-width: 1400px) 1400px, 92vw" 
+                        type="image/avif"
+                    >
+                    <!-- Serve the WebP format if the browser supports it -->
+                    <source 
+                        srcset="{{img_url feature_image size="s" format="webp"}} 300w,
+                                {{img_url feature_image size="m" format="webp"}} 600w,
+                                {{img_url feature_image size="l" format="webp"}} 1000w,
+                                {{img_url feature_image size="xl" format="webp"}} 2000w"
+                        sizes="(min-width: 1400px) 1400px, 92vw" 
+                        type="image/webp"
+                    >
+                    <!-- Serve original file format as a fallback -->
+                    <img
+                        srcset="{{img_url feature_image size="s"}} 300w,
+                                {{img_url feature_image size="m"}} 600w,
+                                {{img_url feature_image size="l"}} 1000w,
+                                {{img_url feature_image size="xl"}} 2000w"
+                        sizes="(min-width: 1400px) 1400px, 92vw"
+                        class="block h-full w-full rounded-full"
+                        src="{{img_url feature_image size="xl"}}"
+                        alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                    >
+                </picture>
+            </div>
+            <h1 class="font-bold text-3xl uppercase mt-2 text-center">{{name}}</h1>
 
-            <h1>{{name}}</h1>
-
-            <p>
-                {{#if description}}
-                    {{description}}
+            <p class="text-center mt-1 text-gray-500"> {{#if description}} {{description}}
                 {{else}}
                     A collection of {{plural ../pagination.total empty='posts' singular='% post' plural='% posts'}}
                 {{/if}}
             </p>
 
-            {{#if feature_image}}
-                <img class="gh-page-image" src="{{feature_image}}" alt="{{name}}" />
-            {{/if}}
-
         </header>
-        {{/tag}}
+    {{/tag}}
 
-        <div class="gh-postfeed">
-        {{#foreach posts}}
+    <div class="posts-grid grid sm:grid-cols-2 lg:grid-cols-3 gap-12 sm:gap-8 mt-12">
+        {{> "loop" }}
+    </div>
 
-            {{> "card"}} {{!-- partials/card.hbs --}}
-
-        {{/foreach}}
-        </div>
-
+    <div>
+        {{pagination}}
     </div>
 </div>
