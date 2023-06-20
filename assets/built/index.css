@@ -2413,6 +2413,11 @@ video {
   margin-bottom: 1.5rem;
 }
 
+.my-8 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
 .\!mt-0 {
   margin-top: 0px !important;
 }
@@ -2483,6 +2488,10 @@ video {
 
 .mt-8 {
   margin-top: 2rem;
+}
+
+.mb-12 {
+  margin-bottom: 3rem;
 }
 
 .block {
