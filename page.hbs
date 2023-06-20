@@ -2,7 +2,7 @@
 
 {{#post}}
     {{#if feature_image}}
-        <figure class="gh-feature-image {{#match @custom.hero_image_width "Full"  }} kg-width-full {{else match @custom.hero_image_width "Wide" }} kg-width-wide {{/match}} !mt-0">
+        <figure class="gh-feature-image {{#match @custom.page_image_width "Full"  }} kg-width-full {{else match @custom.page_image_width "Wide" }} kg-width-wide {{/match}} !mt-0">
         <picture>
             <source 
             srcset="
@@ -45,20 +45,9 @@
         {{/if}}
         </figure>
     {{/if}}
-    <article class="{{post_class}} mt-8">
-        <header class="text-center">
+    <article class="{{post_class}} {{#match @custom.page_content_width "Full"  }} kg-width-full {{else match @custom.page_content_width "Wide" }} kg-width-wide {{/match}} mt-8">
 
-            <h1 class="text-4xl font-bold">{{title}}</h1>
-
-            <div class="flex text-[#b6b7f6] items-center justify-center gap-2 mt-6">
-                {{#if primary_tag}}
-                <a href="{{primary_tag.url}}" class="">{{primary_tag.name}}</a>
-                <span class="" aria-hidden="true">&bull;</span>
-                {{/if}}
-
-                <span class="">{{date published_at}}</span>
-            </div>
-        </header>
+        <h1 class="text-4xl font-bold text-center">{{title}}</h1>
 
         <div class="mt-12 prose max-w-none dark:prose-invert">
             {{content}}
