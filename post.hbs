@@ -36,7 +36,7 @@
           {{img_url feature_image size="l"}} 1200w,
           {{img_url feature_image size="xl"}} 2000w"
           sizes="(min-width: 1200px) 1200px, 90vw" 
-          class="h-[500px] block object-cover"
+          class="max-h-[16rem] h-[16rem] sm:max-h-[500px] mx-auto sm:h-[400px]  md:h-[500px] block object-cover"
           src="{{img_url feature_image size="l"}}"
           alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
         >
@@ -103,11 +103,9 @@
 
   </article>
 
-    <div class="max-w-3xl mx-auto flex gap-4 mt-16">
+    <div class="flex gap-4 items-center mt-16">
       <div class="border-0 border-b w-full border-b-gray-200 dark:border-b-gray-500"></div>
-      <p class="relative">
-        <span class="absolute text-[12px] uppercase -top-[0.6rem] -left-3 text-gray-500 dark:text-gray-400">end</span>
-      </p>
+      <p class="text-gray-500 text-xs uppercase dark:text-gray-400">end</p>
       <div class="border-0 border-b w-full border-b-gray-200 dark:border-b-gray-500"></div>
     </div>
 

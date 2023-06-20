@@ -66,7 +66,7 @@
             <div onclick="toggleSidebar()" class="backdrop overscroll-contain hidden fixed inset-0 z-20 items-end bg-black bg-opacity-50 lg:hidden"></div>
 
 
-            <aside class="mobile-sidebar overscroll-contain hidden fixed inset-y-0 z-50 flex-shrink-0 xs:min-w-[250px] xs:w-max w-full right-0 overflow-y-auto bg-[#ffffff] dark:text-white dark:bg-[#080C21] lg:hidden">
+            <aside class="mobile-sidebar overscroll-contain hidden fixed inset-y-0 z-50 flex-shrink-0 xs:min-w-[250px] w-max right-0 overflow-y-auto bg-[#ffffff] dark:text-white dark:bg-[#080C21] lg:hidden">
                 <button
                     onclick="toggleSidebar()"
                     class="absolute top-3 left-3 lg:hidden z-20 flex h-10 w-10 items-center justify-center rounded-md hover:bg-[#E3E8F3] dark:hover:bg-blue-700">
@@ -81,7 +81,7 @@
                         {{#if @member}}
                             <!-- Profile -->
                             <div class="flex items-center gap-6">
-                                <div class="h-12 w-12 bg-[#333] flex justify-center items-center text-white rounded-full">JB</div>
+                                <img src="{{@member.avatar_image}}" alt="profile-picture" class="h-8 w-8 rounded-full text-sm flex text-white items-center justify-center dark:bg-white bg-[#333]">
                                 <p>{{ @member.name }}</p>
                             </div>
                             <ul class="ml-2">

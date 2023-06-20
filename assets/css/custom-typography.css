@@ -141,17 +141,17 @@ body.dark figcaption{
 }
 
 .alert.info,pre.language-alert.info {
-  --color-accent: blue;
+  --color-accent: #249cee;
   --sign: "i"
 }
 
 .alert.warning,pre.language-alert.warning {
-  --color-accent: yellow;
+  --color-accent: #fddd57;
   --sign: "!"
 }
 
 .alert.error,pre.language-alert.error {
-  --color-accent: red;
+  --color-accent: #fc3860;
   --sign: "!"
 }
 
@@ -160,10 +160,14 @@ body.dark figcaption{
 }
 
 .alert.success,pre.language-alert.success {
-  --color-accent: green;
+  --color-accent: #48c774;
   --sign: "\2713"
 }
 
+body.dark .prose blockquote {
+  border: 1px solid #333;
+  border-left: 3px solid #e50b4f;
+}
 
 .prose blockquote {
   border: 1px solid #eff1f3;
