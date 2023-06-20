@@ -3700,7 +3700,21 @@ body.dark{
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+@media (min-width: 350px) {
+  .xxs\:w-\[250px\] {
+    width: 250px;
+  }
+
+  .xxs\:min-w-\[250px\] {
+    min-width: 250px;
+  }
+}
+
 @media (min-width: 400px) {
+  .xs\:w-\[250px\] {
+    width: 250px;
+  }
+
   .xs\:min-w-\[250px\] {
     min-width: 250px;
   }
