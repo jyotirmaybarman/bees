@@ -82,7 +82,40 @@
             "xl": {
                 "width": 2000
             }
+        },
+        "custom": {
+            "facebook": {
+                "type": "text",
+                "default": ""
+            },
+            "twitter": {
+                "type": "text",
+                "default": ""
+            },
+            "instagram": {
+                "type": "text",
+                "default": ""
+            },
+            "github": {
+                "type": "text",
+                "default": ""
+            },
+            "gitlab": {
+                "type": "text",
+                "default": ""
+            },
+            "linkedin": {
+                "type": "text",
+                "default": ""
+            },
+            "hero_image_width": {
+                "type": "select",
+                "options": ["Full", "Wide", "Compact"],
+                "default": "Full",
+                "group": "post"
+            }
         }
+
     },
     "type": "module"
 }
