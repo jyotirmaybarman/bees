@@ -48,7 +48,7 @@
   {{/if}}
 
 
-  <article class="mt-16 relative">
+  <article class="mt-16 relative kg-width-full gh-canvas">
     <header class="text-center">
 
       <h1 class="text-4xl font-bold">{{title}}</h1>
@@ -65,8 +65,8 @@
 
 
     
-    <div class="relative mt-16">
-        <div class="fixed z-10 bg-white dark:bg-[#080C21] w-full left-0 bottom-0 flex justify-center h-max py-3 lg:py-0 lg:left-auto lg:bg-transparent lg:block lg:absolute lg:top-0 lg:right-[-6rem] xl:-right-52 lg:w-16 lg:h-full">
+    <div class="relative mt-16 kg-width-full gh-canvas">
+        <div class="fixed z-10 bg-white dark:bg-[#080C21] lg:dark:bg-transparent  w-full left-0 bottom-0 flex justify-center h-max py-3 lg:py-0 lg:left-auto lg:bg-transparent lg:block lg:absolute lg:top-0 lg:right-[-6rem] xl:-right-52 lg:w-16 lg:h-full">
           <div class="lg:sticky top-44 right-0 flex lg:flex-col gap-6">
             <button onclick="scrollToTop()" class="group relative bg-white dark:bg-[#080C21] h-12 w-12 flex justify-center items-center rounded-full border dark:border-gray-600">
               <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 stroke-gray-500 dark:stroke-gray-500 group-hover:stroke-[#1da1f2]">
@@ -95,7 +95,7 @@
             </button>
           </div>
         </div>
-        <div class="prose max-w-none dark:prose-invert">
+        <div class="prose kg-width-full gh-canvas max-w-none dark:prose-invert">
           {{content}}
         </div>
     </div>

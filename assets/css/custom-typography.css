@@ -1,54 +1,5 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
-
-/*
-
-This is a development CSS file that is compiled to a minified
-production stylesheet in assets/built/screen.css using: npm run dev
-
-*/
-
-/* Lib - Local component imports
-/* ---------------------------------------------------------- */
-
-/* Base components */
-@import "vars.css";
-/* @import "components/global.css"; */
-@import "components/forms.css";
-@import "components/buttons.css";
-
-/* Ghost components */
-@import "ghost/header.css";
-@import "ghost/content.css";  
-@import "ghost/readmore.css";
-@import "ghost/members.css";
-@import "ghost/errors.css";
-@import "ghost/footer.css";
-@import "ghost/badge.css";
-@import "ghost/pagination.css";
-@import "ghost/comments.css";
-@import "custom-typography.css";
-
-
-
-/* Main - Your styles here! Edit below
-/* ---------------------------------------------------------- */
-
-body.dark{
-  background: #080C21;
-  color: white;
-}
-.hide-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
-*[data-show=false]{
-  display: none;
-}
-
 .gh-canvas > blockquote, .gh-canvas > ol, .gh-canvas > ul, .gh-canvas > dl, .gh-canvas > p {
-  font-size: 1rem;
+  font: inherit;
 }
 .gh-content blockquote{
   background: transparent;

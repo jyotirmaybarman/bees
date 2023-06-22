@@ -62,3 +62,23 @@ body.dark{
 }
 
 
+
+.btn{
+    @apply inline-block px-3 py-2 rounded
+}
+
+.btn-primary{
+    @apply text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300  dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800
+}
+
+.btn-secondary{
+    @apply text-white bg-[#3b5998] hover:bg-[#3b5998]/90  }
+
+.btn-dark{
+    @apply text-white bg-[#24292F] hover:bg-[#24292F]/90  dark:hover:bg-[#24292F]/80
+}
+
+.btn-extra-dark{
+    @apply text-white bg-[#050708] hover:bg-[#050708]/90  dark:hover:bg-[#1c2228]
+}
+

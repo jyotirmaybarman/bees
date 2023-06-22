@@ -45,11 +45,11 @@
         {{/if}}
         </figure>
     {{/if}}
-    <article class="{{post_class}} {{#match @custom.page_content_width "Full"  }} kg-width-full {{else match @custom.page_content_width "Wide" }} kg-width-wide {{/match}} mt-8">
-
-        <h1 class="text-4xl font-bold text-center">{{title}}</h1>
-
-        <div class="mt-12 prose max-w-none dark:prose-invert">
+    <article class="{{post_class}} gh-canvas kg-width-full">
+        {{#match title '!=' "(Untitled)"}}
+        <h1 class="text-4xl font-bold text-center mt-8">{{title}}</h1>
+        {{/match }}
+        <div class="prose max-w-none dark:prose-invert gh-canvas kg-width-full mt-6">
             {{content}}
         </div>
 
