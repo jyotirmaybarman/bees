@@ -130,13 +130,7 @@
                 "default": "Full",
                 "group": "post"
             },
-            "page_image_width": {
-                "type": "select",
-                "options": ["Full", "Wide", "Compact"],
-                "default": "Full",
-                "group": "post"
-            },
-            "page_content_width": {
+            "custom_page_image_width": {
                 "type": "select",
                 "options": ["Full", "Wide", "Compact"],
                 "default": "Full",
