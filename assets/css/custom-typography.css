@@ -92,17 +92,17 @@ body.dark figcaption{
 }
 
 .alert.info,pre.language-alert.info {
-  --color-accent: #249cee;
+  --color-accent: #6366F0;
   --sign: "i"
 }
 
 .alert.warning,pre.language-alert.warning {
-  --color-accent: #fddd57;
+  --color-accent: #EAB308;
   --sign: "!"
 }
 
 .alert.error,pre.language-alert.error {
-  --color-accent: #fc3860;
+  --color-accent: #F51720;
   --sign: "!"
 }
 
@@ -111,70 +111,52 @@ body.dark figcaption{
 }
 
 .alert.success,pre.language-alert.success {
-  --color-accent: #48c774;
+  --color-accent: #22C55E;
   --sign: "\2713"
-}
-
-body.dark .prose blockquote {
-  border: 1px solid #333;
-  border-left: 3px solid #e50b4f;
-}
-
-.prose blockquote {
-  border: 1px solid #eff1f3;
-  border-left: 3px solid #e50b4f;
-  border-bottom-right-radius: 5px;
-  border-top-right-radius: 5px;
-  font-family: Open Sans,Tahoma,Arial,sans-serif;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin: 0 0 2em;
-  padding: 2em;
-  position: relative;
-  text-align: center;
-  width: 100%
-}
-
-.prose blockquote.important-info:before {
-  content: ""
-}
-
-.prose blockquote:before {
-  color: #e50b4f;
-  content: "‟";
-  font-family: sans-serif;
-  font-size: 6rem;
-  font-weight: 800;
-  left: 0;
-  line-height: 3rem;
-  position: absolute;
-  right: 0;
-  text-align: center;
-  top: 0
-}
-
-.prose blockquote+figcaption cite {
-  display: block;
-  font-size: inherit;
-  font-style: italic;
-  text-align: right
-}
-
-.prose blockquote cite {
-  font-weight: 700;
 }
 
 .prose blockquote p {
   margin: 0
 }
 
-.important-info {
-  background-color: #fafafa;
-  border: 1px solid #eff1f3;
-  border-left: 3px solid #e50b4f;
-  border-bottom-right-radius: 5px;
-  border-top-right-radius: 5px;
-  padding: 2em;
+.prose blockquote {
+  padding: 0;
+  margin:0;
+  font-style: italic;
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  padding-left: 55px;
+  border:none;
+  display: block;
+  font-family: sans-serif;
+  font-weight: 700;
+  font-size:25px;
+}
+
+.prose blockquote::before {
+  font-style: none;
+  font-family: sans-serif;
+  font-size: 120px;
+  font-weight: 700;
+  position: absolute;
+  top: -55px;
+  left: -15px;
+  content: '"';
+  color: #e50b4f;
+}
+
+.prose blockquote.kg-blockquote-alt {
+  font-size: 36px;
+  line-height: 1.4;
+  box-sizing: border-box;
+  text-align: center;
+  color: #e50b4f;
+  padding: 0;
+}
+
+.prose blockquote.kg-blockquote-alt::before {
+  display: none;
 }
 
 
