@@ -28,6 +28,8 @@ production stylesheet in assets/built/screen.css using: npm run dev
 @import "ghost/badge.css";
 @import "ghost/pagination.css";
 @import "ghost/comments.css";
+
+/* Custom imports */
 @import "custom-typography.css";
 
 
@@ -35,50 +37,67 @@ production stylesheet in assets/built/screen.css using: npm run dev
 /* Main - Your styles here! Edit below
 /* ---------------------------------------------------------- */
 
-body.dark{
-    background: #080C21;
+body.dark {
+    background: #151719;
     color: white;
 }
 .hide-scrollbar::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
-*[data-show=false]{
+*[data-show="false"] {
     display: none;
-}   
-.progress-container{width:100%;position:fixed;z-index:99;top:0;left:0;}
-.progress-bar{height:5px;background:#F86152;}
+}
+.progress-container {
+    width: 100%;
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+}
+.progress-bar {
+    height: 5px;
+    background: #f86152;
+}
 
-.unshow{
+.unshow {
     height: 0;
     width: 0;
     opacity: 0;
     pointer-events: none;
 }
 
-*{
+* {
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
 }
 
-
-
-.btn{
-    @apply inline-block px-3 py-2 rounded
+.btn {
+    @apply inline-block px-3 py-2 rounded;
 }
 
-.btn-primary{
-    @apply text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300  dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800
+.btn-primary {
+    @apply text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300  dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800;
 }
 
-.btn-secondary{
-    @apply text-white bg-[#3b5998] hover:bg-[#3b5998]/90  }
-
-.btn-dark{
-    @apply text-white bg-[#24292F] hover:bg-[#24292F]/90  dark:hover:bg-[#24292F]/80
+.btn-secondary {
+    @apply text-white bg-[#3b5998] hover:bg-[#3b5998]/90;
 }
 
-.btn-extra-dark{
-    @apply text-white bg-[#050708] hover:bg-[#050708]/90  dark:hover:bg-[#1c2228]
+.btn-dark {
+    @apply text-white bg-[#24292F] hover:bg-[#24292F]/90  dark:hover:bg-[#24292F]/80;
 }
 
+.btn-extra-dark {
+    @apply text-white bg-[#050708] hover:bg-[#050708]/90  dark:hover:bg-[#1c2228];
+}
+
+.underline-animation {
+    padding-bottom: 0.2%;
+    transition: background-size 0.6s ease-out;
+    background: linear-gradient(red, red) no-repeat left 140%/0 40%;
+}
+
+.underline-animation:hover {
+    background-size: 97% 40%;
+}
