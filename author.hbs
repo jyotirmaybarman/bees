@@ -7,7 +7,7 @@
 
             <div class="w-20 h-20 rounded-full">
                 {{#if profile_image}}
-                    <img class="block h-full w-full rounded-full" src="{{profile_image}}" alt="{{name}}" />
+                    <img class="block h-full w-full object-cover rounded-full" src="{{profile_image}}" alt="{{name}}" />
                 {{/if}}
             </div>
             
@@ -18,7 +18,7 @@
             {{/if}}
 
             <div class="flex gap-3 mt-4">
-                {{> "social-links" website="website" twitter="twitter" facebook="facebook" }} 
+                {{> "social-links" website=website twitter=twitter facebook=facebook }} 
             </div>
 
         </header>
