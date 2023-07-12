@@ -1,94 +1,58 @@
 {{!< default}}
 
-<main class="kg-width-wide mt-12">
-    {{#get "posts" filter="featured:true" include="authors,tags" limit="1" as |featured|}}
+<main class="kg-width-wide">
+    <p class="font-bold uppercase mt-6"># FEATURED</p>
+    {{#get "posts" filter="featured:true" include="authors,tags" limit="4" as |featured|}}
         {{#if featured}}
-            {{#foreach featured}}
-                <div class="flex flex-col lg:flex-row items-center lg:gap-5">
-                    <div class="left w-full order-2 lg:order-1 lg:w-1/2">
-                        <div class="tags flex items-center gap-2 mt-4">
-                            {{#foreach tags}}
-                                <a href="{{url}}" class="bg-gray-100 hover:bg-red-500 hover:text-white dark:hover:bg-red-500 dark:hover:text-white text-gray-800 text-xs font-medium mr-2 px-3 py-1 rounded dark:bg-gray-700 dark:text-gray-300">{{name}}</a>
-                            {{/foreach}}
-                            <button>
-                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
-                                </svg>
-                            </button>
-                        </div>
-                        <a href="{{url}}" class="hover:text-red-500 text-[20px] lg:text-[40px] mt-4 inline-block">{{ title }}</a>
-                        <div class="author flex items-center gap-3 mt-6">
-                            <a href="{{primary_author.url}}">
-                                <img src="{{primary_author.profile_image}}" class="rounded-full h-12 w-12" alt="">
-                            </a>
-                            <div class="user">
-                                <a href="{{primary_author.url}}" class="font-bold hover:text-red-500 hover:underline">{{primary_author.name}}</a>
-                                <p class="text-sm text-gray-600 dark:text-gray-300">{{date}}</p>
-                            </div>
-                        </div>
+            <div class="grid lg:grid-cols-2 gap-16 md:gap-12 xl:gap-16 mb-18 mt-4">
+                <div>
+                    <a href="{{ featured.[0].url }}" class="block overflow-hidden rounded">
+                        {{> "picture" picture_classes="w-full rounded aspect-[16/9] lg:aspect-[5/3] transform hover:scale-105 transition duration-500" feature_image=featured.[0].feature_image }}
+                    </a>
+                    <div class="flex gap-3 mt-4">
+                        {{#foreach featured.[0].tags  }}
+                            <a href="{{ url }}" class="inline-flex items-center font-bold leading-sm capitalize text-indigo-500">{{ name }}</a>
+                        {{/foreach }}
                     </div>
-                    <div class="right w-full order-1 lg:order-2 lg:w-1/2 ">
-                        <a class="" href="{{url}}">
-
-                            <picture>
-                                <!-- Serve the AVIF format if the browser supports it -->
-                                <!-- Remove this block when using animated images as feature images -->
-                                <source 
-                                    srcset="{{img_url feature_image size="s" format="avif"}} 300w,
-                                            {{img_url feature_image size="m" format="avif"}} 600w,
-                                            {{img_url feature_image size="l" format="avif"}} 1000w,
-                                            {{img_url feature_image size="xl" format="avif"}} 2000w"
-                                    sizes="(min-width: 1400px) 1400px, 92vw" 
-                                    type="image/avif"
-                                >
-                                <!-- Serve the WebP format if the browser supports it -->
-                                <source 
-                                    srcset="{{img_url feature_image size="s" format="webp"}} 300w,
-                                            {{img_url feature_image size="m" format="webp"}} 600w,
-                                            {{img_url feature_image size="l" format="webp"}} 1000w,
-                                            {{img_url feature_image size="xl" format="webp"}} 2000w"
-                                    sizes="(min-width: 1400px) 1400px, 92vw" 
-                                    type="image/webp"
-                                >
-                                <!-- Serve original file format as a fallback -->
-                                <img
-                                    srcset="{{img_url feature_image size="s"}} 300w,
-                                            {{img_url feature_image size="m"}} 600w,
-                                            {{img_url feature_image size="l"}} 1000w,
-                                            {{img_url feature_image size="xl"}} 2000w"
-                                    sizes="(min-width: 1400px) 1400px, 92vw"
-                                    class="block lg:min-h-[400px] w-full object-cover cursor-pointer md:h-[25rem] object-center hover:scale-[101%] rounded"
-                                    src="{{img_url feature_image size="xl"}}"
-                                    alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
-                                >
-                            </picture>
-                        </a>
+                    <div class="flex flex-col gap-3">
+                        <a href="{{ featured.[0].url }}" class="text-xl lg:text-3xl font-semibold mt-4 inline-block">{{ featured.[0].title }}</a>
+                        <a href="{{ featured.[0].url }}" class="text-lg text-gray-500">{{ featured.[0].excerpt }}</a>
+                        <p class="mt-4 text-sm text-gray-400 dark:text-gray-600 tracking-tight flex items-center gap-2"> {{date featured.[0].published_at}} <span class="h-1 w-1 rounded-full bg-gray-400 dark:bg-gray-600"></span> {{plural featured.[0].reading_time empty="" singular="% min" plural="% mins"}}</p>
                     </div>
                 </div>
-            {{/foreach}}
+                <div class="flex flex-col gap-12">
+                    {{#foreach featured}}
+                        {{#if @index}}
+                            <div class="flex items-center lg:items-start flex-col sm:flex-row sm:gap-10" href="#">
+                                <a href="{{ url }}" class="block overflow-hidden rounded sm:w-[35%]">
+                                    {{> "picture" picture_classes="block object-cover lg:min-w-48 lg:h-40 aspect-[16/9] rounded transform hover:scale-105 transition duration-500" }}
+                                </a>
+                                <div class="sm:w-[60%] mt-4 sm:mt-0">
+                                    <div class="flex gap-3">
+                                        {{#foreach tags  }}
+                                            <a href="{{ url }}" class="inline-flex items-center font-bold leading-sm capitalize text-indigo-500">{{ name }}</a>
+                                        {{/foreach }}
+                                    </div>
+                                    <a href="{{ url }}" class="mt-4 inline-block text-xl font-semibold">{{ title }}</a>
+                                    <a href="{{ url }}" class="mt-2 inline-block text-gray-500 lg:hidden">{{ excerpt }}</a>
+                                    <p class="text-sm text-gray-400 dark:text-gray-600 tracking-tight flex items-center gap-2 mt-4"> {{date}} <span class="h-1 w-1 rounded-full bg-gray-400 dark:bg-gray-600"></span> {{reading_time minute="1 min" minutes="% mins"}}</p>
+                                </div>
+                            </div>
+                        {{/if }}
+                    {{/foreach}}
+                </div>
+            </div>
         {{/if}}
     {{/get}}
 
-    <p class="mt-12 font-bold"># OLDER POSTS</p>
+    <p class="mt-12 font-bold uppercase"># OLDER POSTS</p>
 
-    <div class="flex justify-between gap-6 mt-6">
-        <div class="lg:w-[80%]">
-            <div class="posts-grid grid sm:grid-cols-2 gap-12 sm:gap-8">
-                {{> "loop" }}
-            </div>
+    <div class="mt-10">
+        <div class="posts-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 lg:gap-10" >
+            {{> "loop" }}
+        </div>
 
-            {{pagination}}
-            
-            <div class="lg:hidden mx-auto">
-                <hr class="border-gray-300 dark:border-[#333] my-6" />
-                {{> sidebar  }}
-            </div>
-        </div>
-        <div class="right hidden lg:block lg:w-[20%] min-w-[250px]">
-            <div class="sticky h-fit top-20 hidden lg:flex flex-col">
-                {{> sidebar  }}
-            </div>
-        </div>
+        {{pagination}}
     </div>
 
 </main>
