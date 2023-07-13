@@ -3,35 +3,42 @@
 <div class='progress-bar fixed top-0 left-0 hidden z-20'></div>
 
 {{#post }}
-  {{#if feature_image}}
-    <figure class="gh-feature-image {{#match @custom.hero_image_width "Full"  }} kg-width-full {{else match @custom.hero_image_width "Wide" }} kg-width-wide {{/match}} !mt-0">
-      {{> "picture" picture_classes="max-h-[16rem] h-[16rem] sm:max-h-[500px] w-full sm:h-[400px]  md:h-[500px] block object-cover"  }}
-      {{#if feature_image_caption}}
-        <figcaption class="text-sm p-0 pt-2 font-normal dark:text-white">{{feature_image_caption}}</figcaption>
-      {{/if}}
-    </figure>
-  {{/if}}
-
-
-  <article class="mt-16 relative kg-width-full gh-canvas">
-    <header class="text-center">
-
-      <h1 class="text-4xl font-bold">{{title}}</h1>
-
-      <div class="flex items-center justify-center gap-2 mt-6 font-bold leading-sm capitalize text-indigo-500">
-        {{#if primary_tag}}
-          <a href="{{primary_tag.url}}" class="">{{primary_tag.name}}</a>
-          <span class="" aria-hidden="true">&bull;</span>
-        {{/if}}
-        <p class="flex gap-2 items-center">{{date published_at}} <span aria-hidden="true">&bull;</span> {{reading_time minute="1 min read" minutes="% mins"}}</p>
+  <article class="mt-8 relative kg-width-wide">
+    <header class="flex flex-col lg:flex-row gap-12 items-center text-center lg:text-left">
+      <div class="lg:w-[40%] flex flex-col items-center lg:items-start ">
+        <div class="flex items-center gap-2 font-bold leading-sm capitalize text-indigo-500">
+          {{#if primary_tag}}
+            <a href="{{primary_tag.url}}" class="">{{primary_tag.name}}</a>
+            <span class="" aria-hidden="true">&bull;</span>
+          {{/if}}
+          <p class="flex gap-2 items-center">{{date published_at}} <span aria-hidden="true">&bull;</span> {{reading_time minute="1 min read" minutes="% mins"}}</p>
+        </div>
+        <h1 class="text-4xl text-sp font-bold mt-6 leading-[3rem]">{{title}}</h1>
+        <p class="text-gray-500 mt-6 line-clamp-2">{{ excerpt }}</p>
       </div>
+
+      {{#if feature_image}}
+        <figure class="lg:w-[60%]">
+          {{> "picture" picture_classes="mt-6 lg:mt-0 rounded"  }}
+        </figure>
+      {{/if}}
     </header>
-
-
-    
-    <div class="relative mt-16 kg-width-full gh-canvas">
-        <div class="fixed z-10 bg-white dark:bg-[#151719] lg:dark:bg-transparent  w-full left-0 bottom-0 flex justify-center h-max py-3 lg:py-0 lg:left-auto lg:bg-transparent lg:block lg:absolute lg:top-0 lg:right-[-6rem] xl:-right-52 lg:w-16 lg:h-full">
+    <hr class="my-12 kg-width-wide border-gray-300 dark:border-[#333]">
+    <div class="relative mt-6 kg-width-full gh-canvas">
+        <div class="hidden xl:block w-max z-10 dark:bg-transparent right-auto bg-transparent absolute lg:left-[-12.5rem] xl:left-[-15rem] h-full">
+          <div class="sticky top-20 max-w-[170px] bg-white dark:bg-[#151719] pr-3 pb-3" id="original-toc">
+            <p class="text-lg flex items-center gap-3">TOC</p>
+              <div class="toc-container text-sm relative mt-4"></div>
+          </div>
+        </div>
+        <div class="prose kg-width-full gh-canvas ml-auto max-w-none dark:prose-invert">
+          {{content}}
+        </div>
+        <div class="fixed z-10 bg-white dark:bg-[#151719] lg:dark:bg-transparent  w-full left-0 bottom-0 flex justify-center h-max py-3 lg:py-0 lg:left-auto lg:bg-transparent lg:block lg:absolute lg:top-0 lg:right-[-8rem] 2lg:right-[-12rem] 3lg:right-[-14rem]  xl:right-[-16rem] lg:w-16 lg:h-full">
           <div class="lg:sticky top-44 right-0 flex lg:flex-col gap-6">
+            <button onclick="openTOC()" class="xl:hidden text-xs relative bg-white dark:bg-[#151719] h-12 w-12 flex justify-center items-center rounded-full border dark:border-gray-600">
+              TOC
+            </button>
             <button onclick="scrollToTop()" class="group relative bg-white dark:bg-[#151719] h-12 w-12 flex justify-center items-center rounded-full border dark:border-gray-600">
               <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 stroke-gray-500 dark:stroke-gray-500 group-hover:stroke-[#1da1f2]">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 19.5v-15m0 0l-6.75 6.75M12 4.5l6.75 6.75" />
@@ -59,42 +66,64 @@
             </button>
           </div>
         </div>
-        <div class="prose kg-width-full gh-canvas max-w-none dark:prose-invert">
-          {{content}}
-        </div>
     </div>
-
-
   </article>
 
-    <div class="flex gap-4 items-center mt-16">
-      <div class="border-0 border-b w-full border-b-gray-200 dark:border-b-gray-500"></div>
-      <p class="text-gray-500 text-xs uppercase dark:text-gray-400">end</p>
-      <div class="border-0 border-b w-full border-b-gray-200 dark:border-b-gray-500"></div>
-    </div>
-
-  {{#if comments}}
-    <div class="mt-6">
-        <div class="comments-loading flex justify-center my-6">
-          <svg class="w-6 h-6 animate-spin" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
-          </svg>
-        </div>
-        <div class="comments hidden">
-          {{comments mode="light"}}
-        </div>
-    </div>
-  {{/if}}
+  <div class="flex gap-4 items-center mt-16">
+    <div class="border-0 border-b w-full border-b-gray-200 dark:border-b-gray-500"></div>
+    <p class="text-gray-500 text-xs uppercase dark:text-gray-400">end</p>
+    <div class="border-0 border-b w-full border-b-gray-200 dark:border-b-gray-500"></div>
+  </div>
 {{/post }}
 
+  {{#post}}
+    {{#if comments}}
+      <div class="mt-6">
+          <div class="comments-loading flex justify-center my-6">
+            <svg class="w-6 h-6 animate-spin" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+            </svg>
+          </div>
+          <div class="comments hidden">
+            {{comments mode="light"}}
+          </div>
+      </div>
+    {{/if}}
+  {{/post}}
 
-  <div class="">
+  {{#if @member }}
+    <hr class="border-gray-300 dark:border-[#333] mt-8">
+  {{/if}}
+  <div class="mt-8">
     {{> "related-posts" title_classes="mt-8"  }}
   </div>
+
+
+<div id="mobile-toc-modal-container" class="fixed hidden justify-center items-center w-full bottom-[72px] lg:bottom-auto lg:top-0 lg:h-1/2">
+  <div id="mobile-toc-modal" class="bg-white dark:bg-[#151719] border dark:border-gray-600 w-full md:w-[450px] flex flex-col justify-center items-center p-3 pb-6 relative">
+    <button onclick="openTOC()" class="absolute top-2 right-2 z-20 flex h-10 w-10 items-center justify-center rounded-md hover:bg-[#E3E8F3] dark:hover:bg-blue-700">
+      <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+    <p class="font-bold">TOC</p>
+  </di>
+</div>
 
 {{#contentFor "scripts"}}{{/contentFor}}
 
 <script>
+
+  function openTOC(e){
+    let mobileTocModal = document.querySelector('#mobile-toc-modal')
+    let mobileTocModalContainer = document.querySelector('#mobile-toc-modal-container')
+    let originalToc = document.querySelector('#original-toc')
+
+    mobileTocModalContainer.classList.toggle('hidden')
+    mobileTocModalContainer.classList.toggle('flex')
+ 
+    mobileTocModal.appendChild(originalToc.querySelector('.toc-container'))
+  }
 
   function scrollToTop(e){
     window.scrollTo({top: 0, behavior: 'smooth'})

@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{asset "built/index.css"}}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.css">
     <script src="{{asset "js/toasts.js"}}" ></script>
     <script src="{{asset "built/index.js"}}" defer></script>
 
@@ -70,6 +71,23 @@
         {{>footer }}
 
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.min.js"></script>
+    <script>
+        tocbot.init({
+            // Where to render the table of contents.
+            tocSelector: '.toc-container',
+            // Where to grab the headings to build the table of contents.
+            contentSelector: '.prose',
+            // Which headings to grab inside of the contentSelector element.
+            headingSelector: 'h1, h2, h3, h4, h5, h6',
+            // For headings inside relative or absolute positioned containers within content.
+            hasInnerContainers: true,
+            
+            headingsOffset: 100,
+            scrollSmoothOffset: -100
+        });
+    </script>
 
 {{!-- <foot> --}}
     

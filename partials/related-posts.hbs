@@ -1,8 +1,8 @@
 {{#is "post"}}
     {{#get "posts" include="authors" filter="tags:[{{post.tags}}]+id:-{{post.id}}" limit="3" as |next|}}
         {{#if next}}
-            <h4 class="font-bold mb-4">Read next</h4>
-            <div class="grid sm:grid-cols-3 gap-6">
+            <h4 class="font-bold text-xl">Read next</h4>
+            <div class="grid sm:grid-cols-3 gap-6 mt-6">
                 {{#foreach next}}
                     {{> "card"  no_excerpt=true title_classes="block mt-4" }}
                 {{/foreach}}

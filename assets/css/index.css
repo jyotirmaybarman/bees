@@ -31,11 +31,16 @@ production stylesheet in assets/built/screen.css using: npm run dev
 
 /* Custom imports */
 @import "custom-typography.css";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
 
 
 /* Main - Your styles here! Edit below
 /* ---------------------------------------------------------- */
+
+body{
+    font-family: 'Inter', sans-serif;
+}
 
 body.dark {
     background: #151719;
@@ -100,4 +105,41 @@ body.dark {
 
 .underline-animation:hover {
     background-size: 97% 40%;
+}
+
+.toc-container ol.toc-list,
+.toc-container ol.toc-list .toc-list-item{
+    position: relative;
+    margin: 0 0;
+    padding: 0;
+    
+}
+
+.toc-container .is-active-li{
+    margin: 12px 0;
+}
+
+
+.toc-container ol.toc-list .toc-list-item a::before {
+    @apply bg-gray-300 dark:bg-gray-600;
+}
+.toc-container ol.toc-list .toc-list-item a {
+    margin-left: 12px;
+    margin-top: 7px;
+    display:inline-block;
+    word-break: break-all;
+    @apply text-gray-300 dark:text-gray-600 hover:text-gray-500 dark:hover:text-gray-400;
+}
+
+.toc-container ol.toc-list .toc-list-item.is-active-li {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.toc-container ol.toc-list .toc-list-item.is-active-li a.is-active-link::before{
+    @apply bg-indigo-500
+}
+
+.toc-container ol.toc-list .toc-list-item.is-active-li a {
+    @apply text-indigo-500 hover:text-indigo-500 font-normal;
 }
