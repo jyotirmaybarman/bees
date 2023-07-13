@@ -16,7 +16,7 @@
                     </div>
                     <div class="flex flex-col gap-3">
                         <a href="{{ featured.[0].url }}" class="text-xl lg:text-3xl font-semibold mt-4 inline-block">{{ featured.[0].title }}</a>
-                        <a href="{{ featured.[0].url }}" class="text-lg text-gray-500">{{ featured.[0].excerpt }}</a>
+                        <a href="{{ featured.[0].url }}" class="text-lg text-gray-500 line-clamp-2">{{ featured.[0].excerpt }}</a>
                         <p class="mt-4 text-sm text-gray-400 dark:text-gray-600 tracking-tight flex items-center gap-2"> {{date featured.[0].published_at}} <span class="h-1 w-1 rounded-full bg-gray-400 dark:bg-gray-600"></span> {{plural featured.[0].reading_time empty="" singular="% min" plural="% mins"}}</p>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
                                         {{/foreach }}
                                     </div>
                                     <a href="{{ url }}" class="mt-4 inline-block text-xl font-semibold">{{ title }}</a>
-                                    <a href="{{ url }}" class="mt-2 inline-block text-gray-500 lg:hidden">{{ excerpt }}</a>
+                                    <a href="{{ url }}" class="mt-2 inline-block text-gray-500 lg:hidden line-clamp-2">{{ excerpt }}</a>
                                     <p class="text-sm text-gray-400 dark:text-gray-600 tracking-tight flex items-center gap-2 mt-4"> {{date}} <span class="h-1 w-1 rounded-full bg-gray-400 dark:bg-gray-600"></span> {{reading_time minute="1 min" minutes="% mins"}}</p>
                                 </div>
                             </div>

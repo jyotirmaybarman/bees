@@ -12,7 +12,7 @@
     {{/if}}
     <a href="{{ url }}" class="{{#if title_classes }} {{ title_classes }} {{ else }} mt-4 inline-block text-2xl font-bold {{/if}}" style="letter-spacing: -0.5px;">{{ title }}</a>
     {{#unless no_excerpt }}
-        <p class="text-gray-500 mt-2">{{ excerpt }}</p>
+        <p class="text-gray-500 mt-2 line-clamp-2">{{ excerpt }}</p>
     {{/unless }}
     <p class="mt-4 text-sm text-gray-400 dark:text-gray-600 tracking-tight flex items-center gap-2"> {{date}} <span aria-hidden="true">&bull;</span> {{reading_time minute="1 min" minutes="% mins"}}</p>
 </div>
