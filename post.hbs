@@ -3,15 +3,22 @@
 <div class='progress-bar fixed top-0 left-0 hidden z-20'></div>
 
 {{#post }}
-  <article class="mt-8 relative kg-width-wide">
+  <article class="mt-12 relative kg-width-wide">
     <header class="flex flex-col lg:flex-row gap-12 items-center text-center lg:text-left">
       <div class="lg:w-[40%] flex flex-col items-center lg:items-start ">
         <div class="flex items-center gap-2 font-bold leading-sm capitalize text-indigo-500">
+          {{#foreach authors }}
+            <a href="{{url}}" class="hover:underline capitalize">{{name}}</a>
+            {{#if @index }}
+              <span class="" aria-hidden="true">&</span>
+            {{/if}}
+          {{/foreach }}
           {{#if primary_tag}}
+            <span class="" aria-hidden="true">&bull;</span>
             <a href="{{primary_tag.url}}" class="">{{primary_tag.name}}</a>
             <span class="" aria-hidden="true">&bull;</span>
           {{/if}}
-          <p class="flex gap-2 items-center">{{date published_at}} <span aria-hidden="true">&bull;</span> {{reading_time minute="1 min read" minutes="% mins"}}</p>
+          <p class="flex gap-2 items-center">{{date}}</p>
         </div>
         <h1 class="text-4xl text-sp font-bold mt-6 leading-[3rem]">{{title}}</h1>
         <p class="text-gray-500 mt-6 line-clamp-2">{{ excerpt }}</p>
@@ -26,7 +33,7 @@
     <hr class="my-12 kg-width-wide border-gray-300 dark:border-[#333]">
     <div class="relative mt-6 kg-width-full gh-canvas">
         <div class="hidden xl:block w-max z-10 dark:bg-transparent right-auto bg-transparent absolute lg:left-[-12.5rem] xl:left-[-15rem] h-full">
-          <div class="sticky top-20 max-w-[170px] bg-white dark:bg-[#151719] pr-3 pb-3" id="original-toc">
+          <div class="sticky top-24 max-w-[170px] bg-white dark:bg-[#151719] pr-3 pb-3" id="original-toc">
             <p class="text-lg flex items-center gap-3">TOC</p>
               <div class="toc-container text-sm relative mt-4"></div>
           </div>
@@ -35,7 +42,7 @@
           {{content}}
         </div>
         <div class="fixed z-10 bg-white dark:bg-[#151719] lg:dark:bg-transparent  w-full left-0 bottom-0 flex justify-center h-max py-3 lg:py-0 lg:left-auto lg:bg-transparent lg:block lg:absolute lg:top-0 lg:right-[-8rem] 2lg:right-[-12rem] 3lg:right-[-14rem]  xl:right-[-16rem] lg:w-16 lg:h-full">
-          <div class="lg:sticky top-44 right-0 flex lg:flex-col gap-6">
+          <div class="lg:sticky top-44 right-0 flex lg:flex-col gap-3 sm:gap-5">
             <button onclick="openTOC()" class="xl:hidden text-xs relative bg-white dark:bg-[#151719] h-12 w-12 flex justify-center items-center rounded-full border dark:border-gray-600">
               TOC
             </button>
@@ -99,7 +106,7 @@
   </div>
 
 
-<div id="mobile-toc-modal-container" class="fixed hidden justify-center items-center w-full bottom-[72px] lg:bottom-auto lg:top-0 lg:h-1/2">
+<div id="mobile-toc-modal-container" class="fixed z-[9999] hidden justify-center items-center w-full bottom-[72px] lg:bottom-auto lg:top-0 lg:h-1/2">
   <div id="mobile-toc-modal" class="bg-white dark:bg-[#151719] border dark:border-gray-600 w-full md:w-[450px] flex flex-col justify-center items-center p-3 pb-6 relative">
     <button onclick="openTOC()" class="absolute top-2 right-2 z-20 flex h-10 w-10 items-center justify-center rounded-md hover:bg-[#E3E8F3] dark:hover:bg-blue-700">
       <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">

@@ -84,6 +84,9 @@
             }
         },
         "custom": {
+            "dark_mode_logo": {
+                "type": "image"
+            },
             "facebook": {
                 "type": "text",
                 "default": ""
@@ -107,28 +110,6 @@
             "linkedin": {
                 "type": "text",
                 "default": ""
-            },
-            "feedback_email": {
-                "type": "text",
-                "default": ""
-            },
-            "feedback_text": {
-                "type": "text",
-                "default": "For any feedback, drop me a message and I will get back to you.\nThank You"
-            },
-            "buy_coffee_link":{
-                "type": "text",
-                "default": ""
-            },
-            "buy_coffee_text":{
-                "type": "text",
-                "default": "If you are enjoying my contents then please consider buying me a coffee.\nThank You"
-            },
-            "hero_image_width": {
-                "type": "select",
-                "options": ["Full", "Wide", "Compact"],
-                "default": "Full",
-                "group": "post"
             },
             "custom_page_image_width": {
                 "type": "select",
