@@ -1388,20 +1388,16 @@ video {
   max-width: 200px;
 }
 
+.max-w-\[80px\]{
+  max-width: 80px;
+}
+
 .max-w-none{
   max-width: none;
 }
 
 .max-w-xs{
   max-width: 20rem;
-}
-
-.max-w-\[\]{
-  max-width: ;
-}
-
-.max-w-\[80px\]{
-  max-width: 80px;
 }
 
 .flex-shrink-0{
@@ -3626,6 +3622,12 @@ body.dark {
   white-space: nowrap;
   display: block;
   line-height: 1.65em
+}
+
+.prose iframe {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%
 }
 
 :is(.dark .dark\:prose-invert){
