@@ -143,3 +143,30 @@ body.dark {
 .toc-container ol.toc-list .toc-list-item.is-active-li a {
     @apply text-indigo-500 hover:text-indigo-500 font-normal;
 }
+
+
+.prose .kg-bookmark-title {
+    font-size: 0.9rem;
+}
+
+.prose .kg-bookmark-description {
+    margin-top:7px;
+    font-size: 0.9rem;
+}
+
+.prose .kg-bookmark-metadata {
+    margin-top: 16px;
+    font-size: 0.9rem;
+}
+
+.prose .kg-bookmark-icon {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    margin-right: 6px;
+}
+
+.prose .kg-bookmark-thumbnail img {
+    margin: 0;
+}
+

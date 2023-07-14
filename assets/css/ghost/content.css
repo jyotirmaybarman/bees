@@ -211,7 +211,7 @@ figcaption strong {
 /* Bookmark Cards
 /* ---------------------------------------------------------- */
 
-.kg-bookmark-card,
+/* .kg-bookmark-card,
 .kg-bookmark-publisher {
     position: relative;
 }
@@ -306,7 +306,7 @@ figcaption strong {
 .kg-bookmark-publisher::before {
     content: "•";
     margin: 0 .5em;
-}
+} */
 
 
 /* Card captions
