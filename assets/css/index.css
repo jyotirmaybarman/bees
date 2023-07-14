@@ -62,7 +62,7 @@ body.dark {
 }
 .progress-bar {
     height: 5px;
-    background: #f86152;
+    background: var(--color-primary);
 }
 
 .unshow {

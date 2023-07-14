@@ -47,7 +47,7 @@
                 {{else if @site.members_enabled}}
                     <a class="px-3 p-2 rounded-md" href="#/portal/account">Sign In</a>
                 {{/if}}
-                <button data-ghost-search class="p-2 hover:bg-[#E3E8F3] dark:hover:bg-blue-700 rounded-md">
+                <button data-ghost-search class="p-2 hover:bg-[#E3E8F3] dark:hover:bg-[var(--color-primary)] rounded-md">
                     <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                     </svg>
@@ -56,12 +56,12 @@
             </div>
 
             <div class="mobile-hamburger lg:hidden gap-2 flex items-center">
-                <button data-ghost-search class="p-2 hover:bg-[#E3E8F3] dark:hover:bg-blue-700 rounded-md">
+                <button data-ghost-search class="p-2 hover:bg-[#E3E8F3] dark:hover:bg-[var(--color-primary)] rounded-md">
                     <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                     </svg>
                 </button>
-                <button class="p-2 hover:bg-[#E3E8F3] dark:hover:bg-blue-700 rounded-md" onclick="toggleSidebar()">
+                <button class="p-2 hover:bg-[#E3E8F3] dark:hover:bg-[var(--color-primary)] rounded-md" onclick="toggleSidebar()">
                     <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
                     </svg>
@@ -72,7 +72,7 @@
         <aside class="mobile-sidebar overscroll-contain hidden fixed justify-center items-center inset-y-0 z-50 flex-shrink-0 w-full left-0 overflow-y-auto bg-[#ffffff] dark:text-white dark:bg-[#151719] lg:hidden">
             <button
                 onclick="toggleSidebar()"
-                class="absolute top-5 right-5 lg:hidden z-20 flex h-12 w-12 items-center justify-center rounded-md hover:bg-[#E3E8F3] dark:hover:bg-blue-700">
+                class="absolute top-5 right-5 lg:hidden z-20 flex h-12 w-12 items-center justify-center rounded-md hover:bg-[#E3E8F3] dark:hover:bg-[var(--color-primary)]">
                 <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                     class="w-8 h-8">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />

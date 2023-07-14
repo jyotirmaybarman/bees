@@ -1131,10 +1131,6 @@ video {
   margin-bottom: 1.25rem;
 }
 
-.mb-8{
-  margin-bottom: 2rem;
-}
-
 .ml-3{
   margin-left: 0.75rem;
 }
@@ -1181,10 +1177,6 @@ video {
 
 .mt-8{
   margin-top: 2rem;
-}
-
-.mt-3{
-  margin-top: 0.75rem;
 }
 
 .line-clamp-2{
@@ -1618,10 +1610,6 @@ video {
   fill: transparent;
 }
 
-.stroke-\[\#1da1f2\]{
-  stroke: #1da1f2;
-}
-
 .stroke-gray-500{
   stroke: #6b7280;
 }
@@ -1943,7 +1931,7 @@ production stylesheet in assets/built/screen.css using: npm run dev
 
 :root {
   /* Colours */
-  --color-primary: var(--ghost-accent-color, #3eb0ef);
+  --color-primary: var(--ghost-accent-color, #013cff);
   --color-base: #131313;
   --color-border: #ddd;
   --color-bg: #f5f5f5;
@@ -3416,7 +3404,7 @@ body.dark {
 
 .progress-bar {
   height: 5px;
-  background: #f86152;
+  background: var(--color-primary);
 }
 
 .unshow {
@@ -3694,6 +3682,10 @@ body.dark {
   background-color: rgb(234 179 8 / var(--tw-bg-opacity));
 }
 
+.hover\:text-\[var\(--color-primary\)\]:hover{
+  color: var(--color-primary);
+}
+
 .hover\:text-blue-500:hover{
   --tw-text-opacity: 1;
   color: rgb(59 130 246 / var(--tw-text-opacity));
@@ -3744,12 +3736,12 @@ body.dark {
   --tw-bg-opacity: 1;
 }
 
-.group:hover .group-hover\:fill-\[\#1da1f2\]{
-  fill: #1da1f2;
+.group:hover .group-hover\:fill-\[var\(--color-primary\)\]{
+  fill: var(--color-primary);
 }
 
-.group:hover .group-hover\:stroke-\[\#1da1f2\]{
-  stroke: #1da1f2;
+.group:hover .group-hover\:stroke-\[var\(--color-primary\)\]{
+  stroke: var(--color-primary);
 }
 
 .group:hover .group-hover\:text-white{
@@ -3911,6 +3903,10 @@ body.dark {
   background-color: rgb(62 62 62 / var(--tw-bg-opacity));
 }
 
+:is(.dark .dark\:hover\:bg-\[var\(--ghost-accent-color\)\]:hover){
+  background-color: var(--ghost-accent-color);
+}
+
 :is(.dark .dark\:hover\:bg-blue-700:hover){
   --tw-bg-opacity: 1;
   background-color: rgb(29 78 216 / var(--tw-bg-opacity));
@@ -3924,6 +3920,10 @@ body.dark {
 :is(.dark .dark\:hover\:bg-yellow-700:hover){
   --tw-bg-opacity: 1;
   background-color: rgb(161 98 7 / var(--tw-bg-opacity));
+}
+
+:is(.dark .dark\:hover\:bg-\[var\(--color-primary\)\]:hover){
+  background-color: var(--color-primary);
 }
 
 :is(.dark .dark\:hover\:text-white:hover){
@@ -4044,6 +4044,14 @@ body.dark {
 
   .lg\:top-0{
     top: 0px;
+  }
+
+  .lg\:order-1{
+    order: 1;
+  }
+
+  .lg\:order-2{
+    order: 2;
   }
 
   .lg\:mt-0{
