@@ -1,39 +1,34 @@
 {{!< default}}
 
-
-<div class="flex justify-center my-12">
-    <div class="flex gap-3 items-center">
-        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z" />
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6z" />
-        </svg>
-        <p>Tags</p>
-    </div>
-</div>
-
-{{#get 'tags' limit='all' include='count.posts'}}
-
-    {{#if tags }}
-
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 kg-width-wide">
-            {{#foreach tags}}
-                <a href="{{url}}" class="border dark:border-gray-700 rounded group relative">
-                    {{#if feature_image}}
-                        <img class="block w-full max-h-[16rem] h-full object-cover" src="{{img_url feature_image size="m"}}" loading="lazy" alt="">
-                    {{/if}}
-
-                    <div class="absolute bg-black bg-opacity-50 text-white flex top-0 left-0 w-full h-full justify-center items-center text-center group-hover:bg-opacity-100">
-                        <div>
-                            <h4 class="font-bold">{{name}}</h4>
-                            <p class=""> {{plural count.posts empty=(t "No posts") singular=(t "1 post") plural=(t "% posts")}} </p>
+<div class="kg-width-wide py-12">
+    <div class="flex gap-6 flex-wrap justify-center">
+        {{#get 'tags' limit='all' include='count.posts'}}
+            {{#if tags }}
+                
+                {{#foreach tags}}
+                    <div class="w-[30%] {{#match @index 2 }} 2lg:w-[20%] w-[25%] min-w-[150px] h-[220px] md:min-w-[200px] md:h-[270px] {{else match @index 3 }} w-auto 2lg:w-[20%] min-w-[150px] h-[220px] 2lg:min-w-[200px] 2lg:h-[270px] {{else match @index '>' 3 }} basis-1 w-[20%] min-w-[150px] h-[220px] {{ else }} 2lg:w-[20%] w-[25%] min-w-[150px] h-[220px] md:min-w-[200px] md:h-[270px] {{/match}}">
+                        <div class="flex flex-col justify-center items-center gap-2">
+                            <a href="{{ url }}" class="flex justify-center items-center relative">
+                                {{#match @index 3 }}  
+                                    {{> "picture" picture_classes="block object-cover w-[150px] h-[150px] 2lg:w-[200px] 2lg:h-[200px] hover:scale-105 rounded-full p-[10px] border border-dashed border-gray-400"  }}
+                                {{else match @index '<' 4}}
+                                    {{> "picture" picture_classes="block object-cover w-[150px] h-[150px] md:w-[200px] md:h-[200px] hover:scale-105 rounded-full p-[10px] border border-dashed border-gray-400"  }}    
+                                {{else}}
+                                    {{> "picture" picture_classes="block object-cover w-[150px] h-[150px] hover:scale-105 rounded-full p-[10px] border border-dashed border-gray-400"  }}
+                                {{/match}}
+                            </a>
+                            <h2><a href="{{ url }}" class="font-bold text-sm">{{ name }}</a></h2>
+                            <span class="text-xs">{{plural count.posts empty=(t "No posts") singular=(t "1 post") plural=(t "% posts")}}</span>
                         </div>
                     </div>
-                </a>
-            {{/foreach}}
-        </div>
-    {{else}}
-        <div class="flex justify-center items-center h-[60vh] text-xl">
-            No tags found
-        </div>
-    {{/if}}        
-{{/get}}
+                {{/foreach}}
+            
+            {{else}}
+                <div class="flex justify-center items-center h-[60vh] text-xl">
+                    No tags found
+                </div>
+            {{/if}}      
+             
+        {{/get}}
+    </div>
+</div>
