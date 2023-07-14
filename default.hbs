@@ -68,7 +68,14 @@
 
         </main>
 
-        {{>footer }}
+        {{^is "post" }}
+            {{>footer }}
+        {{else  }}
+            <div class="hidden lg:block">
+                {{>footer }}
+            </div>
+        {{/is}}
+
 
     </div>
 

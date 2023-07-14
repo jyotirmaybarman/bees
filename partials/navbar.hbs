@@ -24,9 +24,9 @@
                     <div class="click-field relative group inline-block text-left mr-6">
                         <div onclick="showDropdown()" class="flex items-center gap-6 cursor-pointer">
                             <div class="h-8 w-8 object-cover rounded-full flex text-white items-center justify-center dark:bg-white dark:text-black bg-[#1763f1]">{{ @member.name.[0] }}</div>
-                            <button type="button" class="dark:text-white">{{ @member.name }}</button>
+                            <button type="button" class="dark:text-white line-clamp max-w-[160px]">{{ @member.name }}</button>
                         </div>
-                        <div data-show="false" class="dropdown absolute right-1/2 translate-x-1/2 z-10 mt-4 min-w-[150px] w-full origin-top-right rounded-md bg-white dark:bg-[#2a2a2a] text-gray-700 px-1 dark:text-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                        <div data-show="false" class="dropdown absolute z-10 mt-4 min-w-[150px] max-w-[200px] w-full origin-top-right rounded-md bg-white dark:bg-[#2a2a2a] text-gray-700 px-1 dark:text-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                             <div class="py-1" role="none">
                                 <a onclick="showDropdown()" href="/#/portal/account" class="flex items-center gap-4 hover:bg-gray-100 dark:hover:bg-[#3e3e3e] rounded-md px-4 py-2 text-sm">
                                     <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
