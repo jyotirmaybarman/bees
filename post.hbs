@@ -6,22 +6,42 @@
   <article class="mt-12 relative kg-width-wide">
     <header class="flex flex-col lg:flex-row gap-12 items-center text-center lg:text-left">
       <div class="lg:w-[40%] lg:order-2 flex flex-col items-center lg:items-start ">
-        <div class="flex items-center gap-2 font-bold leading-sm capitalize text-indigo-500">
-          {{#foreach authors }}
-            <a href="{{url}}" class="hover:underline capitalize line-clamp max-w-[100px] xl:max-w-[170px]">{{name}}</a>
-            {{#if @index }}
-              <span class="" aria-hidden="true">&</span>
-            {{/if}}
-          {{/foreach }}
+        <div class="flex flex-wrap gap-2 items-center">
+          <div class="relative flex flex-wrap items-center">
+            {{#foreach authors }}
+              <a href="{{url}}" title="{{ name }}" class="{{#if @index }} ml-[-10px] {{/if}} hover:z-20 cursor-pointer h-8 w-8">
+                {{#if profile_image}}
+                  <img src="{{ profile_image }}" class=" block relative w-full h-full rounded-full border  border-[var(--color-primary)]" alt="profile picture of {{ name }}">
+                {{else}}
+                  <div class="h-full w-full rounded-full flex text-white items-center justify-center dark:bg-white dark:text-black bg-[#1763f1]">{{ name.[0] }}</div>
+                {{/if}}
+              </a>
+            {{/foreach }}
+          </div>
+
+          <div>
+            {{#foreach authors }}            
+              {{#if @index }}
+                <span class="" aria-hidden="true">,</span>
+              {{/if}}
+              <a href="{{url}}" class="hover:underline capitalize">{{name}}</a>
+            {{/foreach }}
+          </div>
+
+        </div>
+        <div class="mt-4 flex items-center gap-2 justify-center font-bold leading-sm capitalize text-indigo-500 flex-wrap">
           {{#if primary_tag}}
-            <span class="" aria-hidden="true">&bull;</span>
-            <a href="{{primary_tag.url}}" class="line-clamp max-w-[80px] xl:max-w-[100px]">{{primary_tag.name}}</a>
-            <span class="" aria-hidden="true">&bull;</span>
+            {{#foreach tags }}
+            {{#if @index }}
+              <span class="" aria-hidden="true">&bull;</span>
+            {{/if}}
+              <a href="{{url}}" class="line-clamp max-w-[150px] xl:max-w-[170px]">{{name}}</a>
+            {{/foreach }}
           {{/if}}
-          <p class="flex gap-2 items-center">{{date}}</p>
         </div>
         <h1 class="text-4xl text-sp font-bold mt-6 leading-[3rem]">{{title}}</h1>
         <p class="text-gray-500 mt-6 line-clamp-2">{{ excerpt }}</p>
+        <p class="mt-4 text-sm text-gray-400 dark:text-gray-600 tracking-tight flex items-center gap-2"> {{date}} <span aria-hidden="true">&bull;</span> {{reading_time minute="1 min" minutes="% mins"}}</p>
       </div>
 
       {{#if feature_image}}
