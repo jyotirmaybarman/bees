@@ -72,21 +72,14 @@
         <aside class="mobile-sidebar overscroll-contain hidden fixed justify-center items-center inset-y-0 z-50 flex-shrink-0 w-full left-0 overflow-y-auto bg-[#ffffff] dark:text-white dark:bg-[#151719] lg:hidden">
             <button
                 onclick="toggleSidebar()"
-                class="absolute top-3 right-3 lg:hidden z-20 flex h-10 w-10 items-center justify-center rounded-md hover:bg-[#E3E8F3] dark:hover:bg-blue-700">
+                class="absolute top-5 right-5 lg:hidden z-20 flex h-12 w-12 items-center justify-center rounded-md hover:bg-[#E3E8F3] dark:hover:bg-blue-700">
                 <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                    class="w-6 h-6">
+                    class="w-8 h-8">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
             </button>
 
             <nav class="pt-16 pb-28 my-auto">
-                {{#if @member}}
-                    <!-- Profile -->
-                    <div class="flex flex-col justify-center items-center mb-12">
-                        <div class="h-10 w-10 object-cover rounded-full text-xl flex text-white items-center justify-center dark:bg-white dark:text-black bg-[#1763f1]">{{ @member.name.[0] }}</div>
-                        <p class="mt-2 font-medium">{{ @member.name }}</p>
-                    </div>
-                {{/if}}
                 {{navigation}}
                 <li class="flex justify-center pb-4 mt-6">
                     <!-- Theme Switcher -->
@@ -100,8 +93,9 @@
                                 <li>
                                     <a href="#/portal/account" class="bg-red-500 text-center text-white hover:bg-red-600 p-3 block w-full">Account</a>
                                 </li>
-                                <li class="flex justify-center mt-2">
-                                    <a onclick="showDropdown()" href="javascript:" data-members-signout class="p-3 hover:text-gray-500">Logout</a>
+                                <li class="flex justify-center items-center mt-2 gap-3 p-3">
+                                    <div class="h-6 w-6 object-cover rounded-full flex text-white items-center justify-center dark:bg-white dark:text-black bg-[#1763f1]">{{ @member.name.[0] }}</div>
+                                    <p class="font-medium line-clamp max-w-[150px]">{{ @member.name }}</p>
                                 </li>
                             {{else}}
                                 <li>

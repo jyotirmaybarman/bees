@@ -8,14 +8,14 @@
       <div class="lg:w-[40%] flex flex-col items-center lg:items-start ">
         <div class="flex items-center gap-2 font-bold leading-sm capitalize text-indigo-500">
           {{#foreach authors }}
-            <a href="{{url}}" class="hover:underline capitalize">{{name}}</a>
+            <a href="{{url}}" class="hover:underline capitalize line-clamp max-w-[100px] xl:max-w-[170px]">{{name}}</a>
             {{#if @index }}
               <span class="" aria-hidden="true">&</span>
             {{/if}}
           {{/foreach }}
           {{#if primary_tag}}
             <span class="" aria-hidden="true">&bull;</span>
-            <a href="{{primary_tag.url}}" class="">{{primary_tag.name}}</a>
+            <a href="{{primary_tag.url}}" class="line-clamp max-w-[80px] xl:max-w-[100px]">{{primary_tag.name}}</a>
             <span class="" aria-hidden="true">&bull;</span>
           {{/if}}
           <p class="flex gap-2 items-center">{{date}}</p>
