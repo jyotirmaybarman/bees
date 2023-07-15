@@ -1063,6 +1063,18 @@ video {
   top: 1.25rem;
 }
 
+.top-3{
+  top: 0.75rem;
+}
+
+.top-36{
+  top: 9rem;
+}
+
+.top-10{
+  top: 2.5rem;
+}
+
 .z-10{
   z-index: 10;
 }
@@ -1282,6 +1294,10 @@ video {
   height: 220px;
 }
 
+.h-\[60vh\]{
+  height: 60vh;
+}
+
 .h-\[80px\]{
   height: 80px;
 }
@@ -1301,10 +1317,6 @@ video {
 .h-max{
   height: -moz-max-content;
   height: max-content;
-}
-
-.h-\[60vh\]{
-  height: 60vh;
 }
 
 .max-h-\[16rem\]{
@@ -1750,6 +1762,16 @@ video {
 .py-6{
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+}
+
+.py-8{
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.py-10{
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
 }
 
 .pb-12{
