@@ -13,7 +13,13 @@
                     <div class="flex flex-col gap-2">
                         <div class="h-[300px] min-w-[250px] rounded">
                             <a href="{{ url }}">
-                                {{> "picture" picture_classes="w-full h-full object-cover rounded hover:scale-105" }}
+                                {{#if feature_image}}
+                                    {{> "picture" picture_classes="w-full h-full object-cover rounded hover:scale-105" }}
+                                {{else}}
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-full h-full border rounded dark:border-gray-600">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 8.25h15m-16.5 7.5h15m-1.8-13.5l-3.9 19.5m-2.1-19.5l-3.9 19.5" />
+                                    </svg>
+                                {{/if}}
                             </a>
                         </div>
                         <a href="{{ url }}" class="font-bold text-xl">{{ name }}</a>

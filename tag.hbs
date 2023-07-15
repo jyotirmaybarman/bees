@@ -1,11 +1,17 @@
 {{!< default}}
 
-<div class="kg-width-wide mt-12">
+<div class="kg-width-wide py-12">
     {{#tag}}
         <header class="flex flex-col justify-center items-center">
 
             <div class="w-16 h-16 rounded-full">
-                {{> "picture" picture_classes="w-full h-full p-[5px] border border-dashed object-cover rounded-full" }}
+                {{#if feature_image }}
+                    {{> "picture" picture_classes="w-full h-full p-[5px] border border-dashed object-cover rounded-full" }}
+                {{else}}
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-full h-full border rounded-full dark:border-gray-600">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 8.25h15m-16.5 7.5h15m-1.8-13.5l-3.9 19.5m-2.1-19.5l-3.9 19.5" />
+                    </svg>
+                {{/if }}
             </div>
             <h1 class="font-bold text-xl mt-2 text-center">{{name}}</h1>
 

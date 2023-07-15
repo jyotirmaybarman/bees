@@ -1,20 +1,23 @@
 {{!< default}}
 
-<div class="kg-width-wide mt-12">
-    {{log author  }}
+<div class="kg-width-wide py-12">
     {{#author}}
     <header class="flex flex-col justify-center items-center">
 
-            <div class="w-20 h-20 rounded-full">
+            <div class="w-16 h-16 rounded-full">
                 {{#if profile_image}}
-                    <img class="block h-full w-full object-cover rounded-full" src="{{profile_image}}" alt="{{name}}" />
-                {{/if}}
+                    <img class="w-full h-full p-[5px] border border-dashed object-cover rounded-full" src="{{profile_image}}" alt="{{name}}" />
+                {{else}}
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-full h-full border border-dashed rounded-full dark:border-gray-600 p-2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                    </svg>
+                {{/if }}
             </div>
             
-            <h1 class="font-bold text-3xl uppercase mt-2 text-center">{{name}}</h1>
+            <h1 class="font-bold text-xl mt-2 text-center">{{name}}</h1>
 
             {{#if bio}}
-                <p class="text-center mt-1 text-gray-500">{{bio}}</p>
+                <p class="text-center mt-1 text-gray-500 text-sm">{{bio}}</p>
             {{/if}}
 
             <div class="flex gap-3 mt-4">
