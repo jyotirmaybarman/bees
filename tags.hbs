@@ -1,34 +1,32 @@
 {{!< default}}
 
 <div class="kg-width-wide py-12">
-    <div class="flex gap-6 flex-wrap justify-center">
-        {{#get 'tags' limit='all' include='count.posts'}}
-            {{#if tags }}
-                
+
+    {{#get 'tags' limit='all' order="count.posts desc" include='count.posts'}}
+        {{#if tags }}
+            <h2 class="text-2xl font-bold">Tags Collection</h2>
+            <p class="lg:w-2/3 mt-4 text-gray-600 dark:text-gray-400">Click on any tag to unveil a collection of articles dedicated to that specific theme. Enjoy the journey of exploration and immerse yourself in captivating topics.</p>
+
+            <div class="grid md:grid-cols-2 2lg:grid-cols-4 lg:grid-cols-3 gap-12 lg:gap-8 mt-8">
+                        
                 {{#foreach tags}}
-                    <div class="w-[30%] {{#match @index 2 }} 2lg:w-[20%] w-[25%] min-w-[150px] h-[220px] md:min-w-[200px] md:h-[270px] {{else match @index 3 }} w-auto 2lg:w-[20%] min-w-[150px] h-[220px] 2lg:min-w-[200px] 2lg:h-[270px] {{else match @index '>' 3 }} basis-1 w-[20%] min-w-[150px] h-[220px] {{ else }} 2lg:w-[20%] w-[25%] min-w-[150px] h-[220px] md:min-w-[200px] md:h-[270px] {{/match}}">
-                        <div class="flex flex-col justify-center items-center gap-2">
-                            <a href="{{ url }}" class="flex justify-center items-center relative">
-                                {{#match @index 3 }}  
-                                    {{> "picture" picture_classes="block object-cover w-[150px] h-[150px] 2lg:w-[200px] 2lg:h-[200px] hover:scale-105 rounded-full p-[10px] border border-dashed border-gray-400"  }}
-                                {{else match @index '<' 4}}
-                                    {{> "picture" picture_classes="block object-cover w-[150px] h-[150px] md:w-[200px] md:h-[200px] hover:scale-105 rounded-full p-[10px] border border-dashed border-gray-400"  }}    
-                                {{else}}
-                                    {{> "picture" picture_classes="block object-cover w-[150px] h-[150px] hover:scale-105 rounded-full p-[10px] border border-dashed border-gray-400"  }}
-                                {{/match}}
+                    <div class="flex flex-col gap-2">
+                        <div class="h-[300px] min-w-[250px] rounded">
+                            <a href="{{ url }}">
+                                {{> "picture" picture_classes="w-full h-full object-cover rounded hover:scale-105" }}
                             </a>
-                            <h2><a href="{{ url }}" class="font-bold text-sm">{{ name }}</a></h2>
-                            <span class="text-xs">{{plural count.posts empty=(t "No posts") singular=(t "1 post") plural=(t "% posts")}}</span>
                         </div>
+                        <a href="{{ url }}" class="font-bold text-xl">{{ name }}</a>
+                        <p class="text-xs">{{plural count.posts empty=(t "No posts") singular=(t "1 post") plural=(t "% posts")}}</p>
                     </div>
                 {{/foreach}}
+                    
+            </div>
+        {{else}}
+            <div class="flex justify-center items-center h-[60vh] text-xl">
+                No tags found
+            </div>
+        {{/if}}      
             
-            {{else}}
-                <div class="flex justify-center items-center h-[60vh] text-xl">
-                    No tags found
-                </div>
-            {{/if}}      
-             
-        {{/get}}
-    </div>
+    {{/get}}
 </div>

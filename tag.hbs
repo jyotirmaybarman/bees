@@ -5,42 +5,11 @@
         <header class="flex flex-col justify-center items-center">
 
             <div class="w-16 h-16 rounded-full">
-                <picture>
-                    <!-- Serve the AVIF format if the browser supports it -->
-                    <!-- Remove this block when using animated images as feature images -->
-                    <source 
-                        srcset="{{img_url feature_image size="s" format="avif"}} 300w,
-                                {{img_url feature_image size="m" format="avif"}} 600w,
-                                {{img_url feature_image size="l" format="avif"}} 1000w,
-                                {{img_url feature_image size="xl" format="avif"}} 2000w"
-                        sizes="(min-width: 1400px) 1400px, 92vw" 
-                        type="image/avif"
-                    >
-                    <!-- Serve the WebP format if the browser supports it -->
-                    <source 
-                        srcset="{{img_url feature_image size="s" format="webp"}} 300w,
-                                {{img_url feature_image size="m" format="webp"}} 600w,
-                                {{img_url feature_image size="l" format="webp"}} 1000w,
-                                {{img_url feature_image size="xl" format="webp"}} 2000w"
-                        sizes="(min-width: 1400px) 1400px, 92vw" 
-                        type="image/webp"
-                    >
-                    <!-- Serve original file format as a fallback -->
-                    <img
-                        srcset="{{img_url feature_image size="s"}} 300w,
-                                {{img_url feature_image size="m"}} 600w,
-                                {{img_url feature_image size="l"}} 1000w,
-                                {{img_url feature_image size="xl"}} 2000w"
-                        sizes="(min-width: 1400px) 1400px, 92vw"
-                        class="block h-full w-full rounded-full"
-                        src="{{img_url feature_image size="xl"}}"
-                        alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
-                    >
-                </picture>
+                {{> "picture" picture_classes="w-full h-full p-[5px] border border-dashed object-cover rounded-full" }}
             </div>
-            <h1 class="font-bold text-3xl uppercase mt-2 text-center">{{name}}</h1>
+            <h1 class="font-bold text-xl mt-2 text-center">{{name}}</h1>
 
-            <p class="text-center mt-1 text-gray-500"> {{#if description}} {{description}}
+            <p class="text-center mt-1 text-gray-500 text-xs"> {{#if description}} {{description}}
                 {{else}}
                     A collection of {{plural ../pagination.total empty='posts' singular='% post' plural='% posts'}}
                 {{/if}}
