@@ -1,7 +1,7 @@
 {
     "name": "bees",
     "description": "A Custom Theme For Blogging",
-    "demo": "https://starter.ghost.io",
+    "demo": "",
     "version": "0.0.1",
     "engines": {
         "ghost": ">=5.0.0"
@@ -18,15 +18,15 @@
         "pretest": "npm run build"
     },
     "author": {
-        "name": "Ghost Foundation",
-        "email": "hello@ghost.org",
-        "url": "https://ghost.org"
+        "name": "Jyotirmay Barman",
+        "email": "jyotirmay@developerzilla.com",
+        "url": "https://jyotirmaybarman.com"
     },
     "gpm": {
         "type": "theme",
         "categories": [
             "Minimal",
-            "Magazine"
+            "Blog"
         ]
     },
     "keywords": [
@@ -36,10 +36,10 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/TryGhost/Starter.git"
+        "url": "https://github.com/jyotirmaybarman/bees.git"
     },
-    "bugs": "https://github.com/TryGhost/Starter/issues",
-    "contributors": [],
+    "bugs": "https://github.com/jyotirmaybarman/bees/issues",
+    "contributors": ["https://github.com/jyotirmaybarman"],
     "devDependencies": {
         "@babel/core": "^7.21.0",
         "@babel/preset-env": "^7.20.2",
@@ -62,7 +62,7 @@
     ],
     "config": {
         "card_assets": true,
-        "posts_per_page": 9,
+        "posts_per_page": 13,
         "image_sizes": {
             "xxs": {
                 "width": 30

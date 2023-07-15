@@ -3,7 +3,7 @@
 <div class='progress-bar fixed top-0 left-0 hidden z-20'></div>
 
 {{#post }}
-  <article class="relative kg-width-wide">
+  <article class="relative kg-width-wide mt-6">
     <header class="flex flex-col lg:flex-row gap-12 items-center text-center lg:text-left">
       <div class="lg:w-[40%] lg:order-2 flex flex-col items-center lg:items-start ">
         <div class="flex flex-wrap gap-2 items-center">
@@ -46,7 +46,7 @@
 
       {{#if feature_image}}
         <figure class="lg:w-[60%] lg:order-1">
-          {{> "picture" picture_classes="mt-6 lg:mt-0 rounded"  }}
+          {{> "picture" picture_classes="mt-6 lg:mt-0 rounded max-h-[460.67px] w-full object-cover"  }}
         </figure>
       {{/if}}
     </header>
@@ -121,7 +121,7 @@
   {{#if @member }}
     <hr class="border-gray-300 dark:border-[#333] mt-8">
   {{/if}}
-  <div class="mt-8">
+  <div class="mt-8 pb-24">
     {{> "related-posts" title_classes="mt-8"  }}
   </div>
 

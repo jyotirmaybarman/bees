@@ -1,58 +1,72 @@
 {{!< default}}
 
 <main class="kg-width-wide">
-    <p class="font-bold uppercase"># FEATURED</p>
-    {{#get "posts" filter="featured:true" include="authors,tags" limit="4" as |featured|}}
-        {{#if featured}}
-            <div class="grid lg:grid-cols-2 gap-16 md:gap-12 xl:gap-16 mb-18 mt-4">
-                <div>
-                    <a href="{{ featured.[0].url }}" class="block overflow-hidden rounded">
-                        {{> "picture" picture_classes="w-full rounded aspect-[16/9] lg:aspect-[5/3] transform hover:scale-105 transition duration-500" feature_image=featured.[0].feature_image }}
-                    </a>
-                    <div class="flex gap-3 mt-4">
-                        {{#foreach featured.[0].tags  }}
-                            <a href="{{ url }}" class="inline-flex items-center font-bold leading-sm capitalize text-indigo-500">{{ name }}</a>
-                        {{/foreach }}
-                    </div>
-                    <div class="flex flex-col gap-3">
-                        <a href="{{ featured.[0].url }}" class="text-xl lg:text-3xl font-semibold mt-4 inline-block">{{ featured.[0].title }}</a>
-                        <a href="{{ featured.[0].url }}" class="text-lg text-gray-500 line-clamp-2">{{ featured.[0].excerpt }}</a>
-                        <p class="mt-4 text-sm text-gray-400 dark:text-gray-600 tracking-tight flex items-center gap-2"> {{date featured.[0].published_at}} <span class="h-1 w-1 rounded-full bg-gray-400 dark:bg-gray-600"></span> {{plural featured.[0].reading_time empty="" singular="% min" plural="% mins"}}</p>
-                    </div>
+    <p class="mt-6 font-bold uppercase text-gray-600 dark:text-gray-400"># LATEST</p>
+
+    <div class="grid lg:grid-cols-2 gap-16 md:gap-12 xl:gap-16 mb-18 mt-4">
+
+    {{#foreach posts}}
+        {{#match @index 0}}
+            <div>
+                <a href="{{ url }}" class="block overflow-hidden rounded">
+                    {{> "picture" picture_classes="w-full rounded aspect-[16/9] lg:aspect-[5/3] object-cover transform hover:scale-105 transition duration-500" }}
+                </a>
+                <div class="flex gap-3 mt-4">
+                    {{#foreach tags  }}
+                        <a href="{{ url }}" class="inline-flex items-center font-bold leading-sm capitalize text-indigo-500">{{ name }}</a>
+                    {{/foreach }}
                 </div>
-                <div class="flex flex-col gap-12">
-                    {{#foreach featured}}
-                        {{#if @index}}
-                            <div class="flex items-center lg:items-start flex-col sm:flex-row sm:gap-10" href="#">
-                                <a href="{{ url }}" class="block overflow-hidden rounded sm:w-[35%]">
-                                    {{> "picture" picture_classes="block object-cover lg:min-w-48 lg:h-40 aspect-[16/9] rounded transform hover:scale-105 transition duration-500" }}
-                                </a>
-                                <div class="sm:w-[60%] mt-4 sm:mt-0">
-                                    <div class="flex gap-3">
-                                        {{#foreach tags  }}
-                                            <a href="{{ url }}" class="inline-flex items-center font-bold leading-sm capitalize text-indigo-500">{{ name }}</a>
-                                        {{/foreach }}
-                                    </div>
-                                    <a href="{{ url }}" class="mt-4 inline-block text-xl font-semibold">{{ title }}</a>
-                                    <a href="{{ url }}" class="mt-2 text-gray-500 lg:hidden line-clamp-2">{{ excerpt }}</a>
-                                    <p class="text-sm text-gray-400 dark:text-gray-600 tracking-tight flex items-center gap-2 mt-4"> {{date}} <span class="h-1 w-1 rounded-full bg-gray-400 dark:bg-gray-600"></span> {{reading_time minute="1 min" minutes="% mins"}}</p>
-                                </div>
-                            </div>
-                        {{/if }}
-                    {{/foreach}}
+                <div class="flex flex-col gap-3">
+                    <a href="{{ url }}" class="text-xl lg:text-3xl font-semibold mt-4 inline-block">{{ title }}</a>
+                    <a href="{{ url }}" class="text-lg text-gray-500 line-clamp-2">{{ excerpt }}</a>
+                    <p class="mt-4 text-sm text-gray-400 dark:text-gray-600 tracking-tight flex items-center gap-2"> {{date}} <span class="h-1 w-1 rounded-full bg-gray-400 dark:bg-gray-600"></span> {{plural featured.[0].reading_time empty="" singular="% min" plural="% mins"}}</p>
                 </div>
             </div>
-        {{/if}}
-    {{/get}}
+        {{/match}}
+    {{/foreach}}
 
-    <p class="mt-12 font-bold uppercase"># OLDER POSTS</p>
 
-    <div class="mt-10">
+    <div class="flex flex-col gap-12">
+        {{#foreach posts as |featured|}}
+            {{#if @index}}
+                {{#match @index '<' 4}}
+                    <div class="flex items-center lg:items-start flex-col sm:flex-row sm:gap-10" href="#">
+                        <a href="{{ url }}" class="block overflow-hidden rounded sm:w-[35%]">
+                            {{> "picture" picture_classes="block object-cover lg:min-w-48 lg:h-40 aspect-[16/9] rounded transform hover:scale-105 transition duration-500" }}
+                        </a>
+                        <div class="sm:w-[60%] mt-4 sm:mt-0">
+                            <div class="flex gap-3">
+                                {{#foreach tags  }}
+                                    <a href="{{ url }}" class="inline-flex items-center font-bold leading-sm capitalize text-indigo-500">{{ name }}</a>
+                                {{/foreach }}
+                            </div>
+                            <a href="{{ url }}" class="mt-4 inline-block text-xl font-semibold">{{ title }}</a>
+                            <a href="{{ url }}" class="mt-2 text-gray-500 lg:hidden line-clamp-2">{{ excerpt }}</a>
+                            <p class="text-sm text-gray-400 dark:text-gray-600 tracking-tight flex items-center gap-2 mt-4"> {{date}} <span class="h-1 w-1 rounded-full bg-gray-400 dark:bg-gray-600"></span> {{reading_time minute="1 min" minutes="% mins"}}</p>
+                        </div>
+                    </div>
+                {{/match }}
+            {{/if }}
+        {{/foreach}}
+    </div>
+    </div>
+    
+
+    <p class="mt-12 font-bold uppercase text-gray-600 dark:text-gray-400"># OLDER POSTS</p>
+
+    <div class="mt-4">
         <div class="posts-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 lg:gap-10" >
-            {{> "loop" }}
+            {{#foreach posts}}
+                {{#match @index '>' 3}}
+                    {{> "card" }}
+                {{/match}}
+            {{/foreach}}
         </div>
 
-        {{pagination}}
+        <div class="pb-6 md:py-12">
+            {{pagination}}
+        </div>
+
     </div>
 
 </main>
