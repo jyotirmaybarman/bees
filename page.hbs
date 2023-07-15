@@ -1,6 +1,11 @@
 {{!< default}}
 
 {{#post}}
+    {{#if feature_image}}
+        <div class="gh-feature-image {{#match @custom.custom_page_image_width "Full"  }} kg-width-full {{else match @custom.custom_page_image_width "Wide" }} kg-width-wide {{/match}} !mt-0">
+            {{> "picture" picture_classes="max-h-[16rem] h-[16rem] sm:max-h-[500px] w-full sm:h-[400px]  md:h-[500px] block object-cover" }}
+        </div>
+    {{/if}}
     <article class="{{post_class}} gh-canvas kg-width-full">
         <div class="prose max-w-none dark:prose-invert gh-canvas kg-width-full">
             {{content}}
