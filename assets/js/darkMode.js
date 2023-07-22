@@ -1,4 +1,4 @@
-let theme = 'dark';
+let theme = 'light';
 
 function init(){
     let storedTheme = localStorage.getItem('theme');
