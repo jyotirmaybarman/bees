@@ -9,7 +9,7 @@
         {{#match @index 0}}
             <div>
                 <a href="{{ url }}" class="block overflow-hidden rounded">
-                    {{> "picture" picture_classes="w-full rounded aspect-[16/9] lg:aspect-[5/3] object-cover transform hover:scale-105 transition duration-500" }}
+                    {{> "picture" eager="true" picture_classes="w-full rounded aspect-[16/9] lg:aspect-[5/3] object-cover transform hover:scale-105 transition duration-500" }}
                 </a>
                 <div class="flex gap-3 mt-4">
                     {{#foreach tags  }}
@@ -31,8 +31,8 @@
             {{#if @index}}
                 {{#match @index '<' 4}}
                     <div class="flex items-center lg:items-start flex-col sm:flex-row sm:gap-10" href="#">
-                        <a href="{{ url }}" class="block overflow-hidden rounded sm:w-[35%]">
-                            {{> "picture" picture_classes="block object-cover lg:min-w-48 lg:h-40 aspect-[16/9] rounded transform hover:scale-105 transition duration-500" }}
+                        <a href="{{ url }}" class="block overflow-hidden rounded w-full sm:w-[35%]">
+                            {{> "picture" picture_classes="block object-cover lg:min-w-48 lg:h-40 w-full aspect-[16/9] rounded transform hover:scale-105 transition duration-500" }}
                         </a>
                         <div class="sm:w-[60%] mt-4 sm:mt-0">
                             <div class="flex gap-3">
