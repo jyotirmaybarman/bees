@@ -4,9 +4,9 @@
             <div class="flex items-center gap-16">
                 <a class="font-bold" href="{{@site.url}}">
                     {{#if @site.logo}}
-                        <img width="100%" height="100%" src="{{@site.logo}}" alt="{{@site.title}}" class="dark:hidden" />
+                        <img loading="lazy" width="100%" height="100%" src="{{@site.logo}}" alt="{{@site.title}}" class="dark:hidden" />
                         {{#if @custom.dark_mode_logo}}
-                            <img width="100%" height="100%" src="{{@custom.dark_mode_logo}}" alt="{{@site.title}}" class="dark:block hidden">
+                            <img loading="lazy" width="100%" height="100%" src="{{@custom.dark_mode_logo}}" alt="{{@site.title}}" class="dark:block hidden">
                         {{/if}}
                     {{else}}
                         {{@site.title}}

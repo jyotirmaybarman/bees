@@ -11,7 +11,7 @@
             {{#foreach authors }}
               <a href="{{url}}" title="{{ name }}" class="{{#if @index }} ml-[-10px] {{/if}} hover:z-20 cursor-pointer h-8 w-8">
                 {{#if profile_image}}
-                  <img src="{{ profile_image }}" class=" block relative w-full h-full rounded-full border  border-[var(--color-primary)]" alt="profile picture of {{ name }}">
+                  <img loading="lazy" src="{{ profile_image }}" class=" block relative w-full h-full rounded-full border  border-[var(--color-primary)]" alt="profile picture of {{ name }}">
                 {{else}}
                   <div class="h-full w-full rounded-full flex text-white items-center justify-center dark:bg-white dark:text-black bg-[#1763f1]">{{ name.[0] }}</div>
                 {{/if}}
