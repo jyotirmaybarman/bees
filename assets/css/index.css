@@ -15,19 +15,19 @@ production stylesheet in assets/built/screen.css using: npm run dev
 /* Base components */
 @import "vars.css";
 /* @import "components/global.css"; */
-@import "components/forms.css";
-@import "components/buttons.css";
+/* @import "components/forms.css";
+@import "components/buttons.css"; */
 
 /* Ghost components */
-@import "ghost/header.css";
+/* @import "ghost/header.css"; */
 @import "ghost/content.css";
-@import "ghost/readmore.css";
+/* @import "ghost/readmore.css";
 @import "ghost/members.css";
 @import "ghost/errors.css";
 @import "ghost/footer.css";
 @import "ghost/badge.css";
 @import "ghost/pagination.css";
-@import "ghost/comments.css";
+@import "ghost/comments.css"; */
 
 /* Custom imports */
 @import "custom-typography.css";
