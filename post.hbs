@@ -1,5 +1,5 @@
 {{!< default}}
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.css">
 <div class='progress-bar fixed top-0 left-0 hidden z-20'></div>
 
 {{#post }}
@@ -40,8 +40,8 @@
           {{/if}}
         </div>
         <h1 class="text-4xl text-sp font-bold mt-6 leading-[3rem]">{{title}}</h1>
-        <p class="text-gray-500 mt-6 line-clamp-2">{{ excerpt }}</p>
-        <p class="mt-4 text-sm text-gray-400 dark:text-gray-600 tracking-tight flex items-center gap-2"> {{date}} <span aria-hidden="true">&bull;</span> {{reading_time minute="1 min" minutes="% mins"}}</p>
+        <p class="text-gray-500 dark:text-gray-400 mt-6 line-clamp-2">{{ excerpt }}</p>
+        <p class="mt-4 text-sm text-gray-400 dark:text-gray-500 tracking-tight flex items-center gap-2"> {{date}} <span aria-hidden="true">&bull;</span> {{reading_time minute="1 min" minutes="% mins"}}</p>
       </div>
 
       {{#if feature_image}}
@@ -167,3 +167,19 @@
   }
 </script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.min.js"></script>
+<script>
+  tocbot.init({
+    // Where to render the table of contents.
+    tocSelector: '.toc-container',
+    // Where to grab the headings to build the table of contents.
+    contentSelector: '.prose',
+    // Which headings to grab inside of the contentSelector element.
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    // For headings inside relative or absolute positioned containers within content.
+    hasInnerContainers: true,
+    
+    headingsOffset: 100,
+    scrollSmoothOffset: -100
+  });
+</script>
