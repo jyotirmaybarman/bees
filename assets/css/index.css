@@ -183,3 +183,8 @@ body.dark {
     margin: 0 auto;
     max-width: 100%
 }
+
+:not(pre)>code[class*=language-],pre[class*=language-] {
+    @apply !bg-[#011627] dark:!bg-[#272822];
+    border-radius: 8px;
+}
