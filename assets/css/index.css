@@ -170,7 +170,7 @@ body.dark {
     margin: 0;
 }
 
-@responsive {
+@layer utilities {
     .line-clamp {
         text-overflow: ellipsis;
         overflow: hidden;

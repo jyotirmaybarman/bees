@@ -38,7 +38,7 @@
                             {{> "picture" picture_classes="block object-cover lg:min-w-48 lg:h-40 w-full aspect-[16/9] rounded transform hover:scale-105 transition duration-500" }}
                         </a>
                         <div class="sm:w-[60%] mt-4 sm:mt-0">
-                            <div class="mt-4 flex items-center gap-2 font-bold leading-sm capitalize text-indigo-500 flex-wrap md:flex-nowrap md:line-clamp">
+                            <div class="flex items-center gap-2 font-bold leading-sm capitalize text-indigo-500 flex-wrap md:flex-nowrap md:line-clamp">
                                 {{#foreach tags }}
                                     {{#if @index }}
                                         <span class="" aria-hidden="true">&bull;</span>
@@ -46,7 +46,7 @@
                                         <a href="{{url}}" class="">{{name}}</a>
                                 {{/foreach }}
                             </div>
-                            <a href="{{ url }}" class="mt-4 inline-block text-xl font-semibold">{{ title }}</a>
+                            <a href="{{ url }}" class="mt-2 inline-block text-xl font-semibold">{{ title }}</a>
                             <a href="{{ url }}" class="mt-2 text-gray-500 dark:text-gray-400 lg:hidden line-clamp-2">{{ excerpt }}</a>
                             <p class="text-sm text-gray-400 dark:text-gray-500 tracking-tight flex items-center gap-2 mt-4"> {{date}} <span class="h-1 w-1 rounded-full bg-gray-400 dark:bg-gray-600"></span> {{reading_time minute="1 min" minutes="% mins"}}</p>
                         </div>
