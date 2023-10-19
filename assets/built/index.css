@@ -1912,6 +1912,14 @@ video {
   transition-duration: 500ms;
 }
 
+.line-clamp {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  display: block;
+  line-height: 1.65em
+}
+
 /*
 
 This is a development CSS file that is compiled to a minified
@@ -2735,14 +2743,6 @@ body.dark {
   margin: 0;
 }
 
-.line-clamp {
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  display: block;
-  line-height: 1.65em
-}
-
 .prose iframe {
   display: block;
   margin: 0 auto;
@@ -3151,6 +3151,10 @@ body.dark {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .md\:flex-nowrap{
+    flex-wrap: nowrap;
+  }
+
   .md\:gap-12{
     gap: 3rem;
   }
@@ -3158,6 +3162,14 @@ body.dark {
   .md\:py-12{
     padding-top: 3rem;
     padding-bottom: 3rem;
+  }
+
+  .md\:line-clamp {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    display: block;
+    line-height: 1.65em
   }
 }
 

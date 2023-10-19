@@ -170,12 +170,14 @@ body.dark {
     margin: 0;
 }
 
-.line-clamp {
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    display: block;
-    line-height: 1.65em
+@responsive {
+    .line-clamp {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        display: block;
+        line-height: 1.65em
+    }
 }
 
 .prose iframe {
