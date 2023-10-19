@@ -128,7 +128,7 @@ body.dark {
     margin-top: 7px;
     display:inline-block;
     word-break: break-all;
-    @apply text-gray-300 dark:text-gray-600 hover:text-gray-500 dark:hover:text-gray-400;
+    @apply text-gray-500 dark:text-gray-400 hover:text-gray-500 dark:hover:text-gray-400;
 }
 
 .toc-container ol.toc-list .toc-list-item.is-active-li {

@@ -2,14 +2,16 @@
     <a class="block overflow-hidden rounded cursor-pointer" href="{{url}}">
         {{> "picture" picture_classes="w-full rounded aspect-[16/9] object-cover cursor-pointer transform hover:scale-105 transition duration-500" }}
     </a>
-    {{!-- <p class="mt-4 text-sm text-gray-400 dark:text-gray-600 tracking-tight flex items-center gap-2"> {{date}} <span class="h-1 w-1 rounded-full bg-gray-400 dark:bg-gray-600"></span> {{reading_time minute="1 min" minutes="% mins"}}</p> --}}
-    {{#if primary_tag}}
-        <div class="mt-4 flex gap-3">
-            {{#foreach tags}}
-                <a href="{{ url }}" class="inline-flex items-center font-bold leading-sm capitalize text-indigo-500">{{ name }}</a>
-            {{/foreach}}
-        </div>
-    {{/if}}
+    <div class="mt-4 flex items-center gap-2 font-bold leading-sm capitalize text-indigo-500 flex-wrap">
+        {{#if primary_tag}}
+            {{#foreach tags }}
+                {{#if @index }}
+                    <span class="" aria-hidden="true">&bull;</span>
+                {{/if}}
+                <a href="{{url}}" class="line-clamp max-w-[150px] xl:max-w-[170px]">{{name}}</a>
+            {{/foreach }}
+        {{/if}}
+    </div>
     <a href="{{ url }}" class="{{#if title_classes }} {{ title_classes }} {{ else }} mt-4 inline-block text-2xl font-bold {{/if}}" style="letter-spacing: -0.5px;">{{ title }}</a>
     {{#unless no_excerpt }}
         <p class="text-gray-500 dark:text-gray-400 mt-2 line-clamp-2">{{ excerpt }}</p>

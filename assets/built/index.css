@@ -2666,7 +2666,7 @@ body.dark {
   display:inline-block;
   word-break: break-all;
   --tw-text-opacity: 1;
-  color: rgb(209 213 219 / var(--tw-text-opacity));
+  color: rgb(107 114 128 / var(--tw-text-opacity));
 }
 
 .toc-container ol.toc-list .toc-list-item a:hover{
@@ -2676,7 +2676,7 @@ body.dark {
 
 :is(.dark .toc-container ol.toc-list .toc-list-item a){
   --tw-text-opacity: 1;
-  color: rgb(75 85 99 / var(--tw-text-opacity));
+  color: rgb(156 163 175 / var(--tw-text-opacity));
 }
 
 :is(.dark .toc-container ol.toc-list .toc-list-item a:hover){
@@ -3001,11 +3001,6 @@ body.dark {
 :is(.dark .dark\:text-gray-500){
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
-}
-
-:is(.dark .dark\:text-gray-600){
-  --tw-text-opacity: 1;
-  color: rgb(75 85 99 / var(--tw-text-opacity));
 }
 
 :is(.dark .dark\:text-green-200){
