@@ -54,29 +54,25 @@
             </div>
     </div>
 
-    <div>
-
+    <div class="flex flex-col min-h-screen">
         <header>
-
             {{> navbar }}
         </header>
 
-        <main class="gh-canvas">
-
+        <main class="gh-canvas flex-auto">
             {{{body}}}
             {{!-- All content gets inserted here, index.hbs, post.hbs, etc --}}
-
         </main>
 
-        {{^is "post" }}
-            {{>footer }}
-        {{else  }}
-            <div class="hidden lg:block">
+        <div>
+            {{^is "post" }}
                 {{>footer }}
-            </div>
-        {{/is}}
-
-
+            {{else  }}
+                <div class="hidden lg:block">
+                    {{>footer }}
+                </div>
+            {{/is}}
+        </div>
     </div>
 
 
