@@ -1,3 +1,10 @@
+
+![Screenshot from 2024-01-29 10-59-31](https://github.com/jyotirmaybarman/bees/assets/56916274/9d2c4ec1-e266-484b-8fd0-cded8784cfc0)
+
+
+
+
+
 ## Theme structure
 
 The main files are:
